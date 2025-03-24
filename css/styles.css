@@ -1,0 +1,157 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles for sticky footer */
+html, body {
+  height: 100%; /* Ensure the body takes up the full viewport height */
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Web-safe font */
+  color: #333;
+  background-color: #FFFFFF; /* White background */
+  display: flex; /* Use flexbox for sticky footer */
+  flex-direction: column; /* Stack children vertically */
+  min-height: 100vh; /* Ensure the body is at least the viewport height */
+}
+
+/* Main content should take up remaining space */
+main {
+  flex: 1 0 auto; /* Grow to fill available space, don't shrink */
+}
+
+/* Container for content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Navigation Bar */
+header {
+  background-color: #F5F5F5; /* Light gray background, matching BurgerBliss */
+  padding: 16px 0;
+  width: 100%; /* Ensure the header spans the full width */
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Darker text for contrast */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  font-size: 20px; /* Size for the emoji/icon */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links li a {
+  color: #666; /* Gray text, matching BurgerBliss */
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links li a:hover {
+  color: #1E3A8A; /* Navy blue on hover, matching the brand */
+}
+
+.cta-btn {
+  background-color: #1E3A8A; /* Navy blue, matching BurgerBliss "Order now" button */
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 20px; /* Rounded corners */
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.cta-btn:hover {
+  background-color: #3B82F6; /* Lighter blue on hover */
+}
+
+/* Footer */
+footer {
+  background-color: #1E3A8A;
+  color: #FFFFFF;
+  padding: 24px 0;
+  text-align: center;
+  flex-shrink: 0; /* Prevent the footer from shrinking */
+  width: 100%; /* Ensure the footer spans the full width */
+}
+
+footer .container {
+  text-align: center;
+}
+
+footer a {
+  color: #FFFFFF;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+footer a:hover {
+  color: #E5E7EB;
+}
+
+/* Buttons (Flat UI) */
+.btn {
+  background-color: #1E3A8A;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #3B82F6; /* Lighter blue on hover */
+}
+
+/* Cards (Flat UI) */
+.card {
+  background-color: #F9FAFB; /* Light gray background */
+  padding: 16px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav-links {
+    display: flex; /* Keep visible for now; you can add a hamburger menu later */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .container {
+    padding: 0 8px;
+  }
+
+  .card {
+    margin-bottom: 16px;
+  }
+}

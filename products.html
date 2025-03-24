@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="OSTA Trading Products – APIs and Excipients">
+  <meta name="description" content="Explore our range of APIs, excipients, and veterinary products.">
+  <title>OSTA Trading - Products</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .products-section {
+      padding: 48px 0;
+      text-align: center;
+    }
+
+    .products-section h2 {
+      font-size: 32px;
+      color: #1E3A8A;
+      margin-bottom: 16px;
+    }
+
+    .categories, .product-list {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 768px) {
+      .categories, .product-list {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">OSTA Trading</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <input type="text" placeholder="Search...">
+        <a href="#">DE</a> | <a href="#">EN</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="products-section container">
+      <h2>Explore Our Range of APIs and Excipients</h2>
+      <div class="categories">
+        <div class="card">
+          <h3>APIs</h3>
+        </div>
+        <div class="card">
+          <h3>Excipients</h3>
+        </div>
+        <div class="card">
+          <h3>Veterinary Products</h3>
+        </div>
+      </div>
+      <div class="product-list">
+        <div class="card">
+          <h4>Paracetamol API</h4>
+          <p>High Purity, GMP Certified</p>
+          <a href="contact.html" class="btn">Request a Quote</a>
+        </div>
+        <div class="card">
+          <h4>Excipient X</h4>
+          <p>For Tablet Formulation</p>
+          <a href="contact.html" class="btn">Request a Quote</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <a href="index.html">Home</a> | <a href="about.html">About Us</a> | <a href="products.html">Products</a> | 
+      <a href="services.html">Services</a> | <a href="blog.html">Blog/News</a> | <a href="contact.html">Contact</a>
+      <p><a href="#">Downloads: Product Catalog</a></p>
+      <p>Email: info@ostatrading.com</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+/* Homepage-specific styles */
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('../assets/hero-bg.jpg'); /* Add background image with overlay */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 0; /* Generous padding */
+  text-align: center;
+  position: relative; /* For overlay positioning */
+}
+
+.hero h1 {
+  font-size: 48px;
+  color: #FFFFFF; /* White text for contrast on dark overlay */
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #E5E7EB; /* Light gray for contrast */
+  margin-bottom: 24px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.btn-secondary {
+  background-color: transparent; /* Transparent background for better contrast */
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+.trusted-by {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  color: #E5E7EB; /* Light gray for contrast */
+  font-size: 14px;
+}
+
+.trusted-by img {
+  height: 24px; /* Placeholder logo size */
+  filter: grayscale(100%) brightness(200%); /* Grayscale and brighten for contrast */
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
