@@ -266,6 +266,41 @@ footer p {
   border: 0;
 }
 
+/* Story Section (from About Us page) */
+.story {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.story-content {
+  flex: 1;
+}
+
+.story-content h2 {
+  color: #1E3A8A; /* Navy blue */
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.story-content p {
+  color: #333; /* Dark gray */
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.story-image {
+  flex: 0 0 auto;
+}
+
+.story-image img {
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+
 /* Blog Section */
 .blog {
   padding: 40px 0;
@@ -643,6 +678,65 @@ footer p {
   background-color: #3B82F6; /* Lighter blue on hover */
 }
 
+/* Services Page Styles */
+.distribution,
+.complimentary {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.logistics {
+  width: 100%; /* Full width for the section */
+  background-color: #F5F5F5; /* Light gray background */
+  padding: 40px 0;
+}
+
+.logistics .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.distribution-content,
+.logistics-content,
+.complimentary-content {
+  flex: 1;
+}
+
+.distribution-content h2,
+.logistics-content h2,
+.complimentary-content h2 {
+  color: #1E3A8A; /* Navy blue */
+  font-size: 32px; /* Match the story section */
+  margin-bottom: 16px;
+}
+
+.distribution-content p,
+.logistics-content p,
+.complimentary-content p {
+  color: #333; /* Dark gray, match the story section */
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.distribution-image,
+.logistics-image,
+.complimentary-image {
+  flex: 0 0 auto;
+}
+
+.distribution-image img,
+.logistics-image img,
+.complimentary-image img {
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   header .container {
@@ -696,6 +790,25 @@ footer p {
   }
 
   .mission-image img {
+    width: 100%; /* Full width on mobile */
+    max-width: 400px; /* Prevent it from getting too large */
+  }
+
+  /* Stack story content and image vertically on mobile */
+  .story {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .story-content h2 {
+    font-size: 24px; /* Smaller heading on mobile */
+  }
+
+  .story-content p {
+    font-size: 14px; /* Smaller text on mobile */
+  }
+
+  .story-image img {
     width: 100%; /* Full width on mobile */
     max-width: 400px; /* Prevent it from getting too large */
   }
@@ -812,5 +925,32 @@ footer p {
   .search-form .search-btn {
     font-size: 14px; /* Smaller button text on mobile */
     padding: 8px 16px;
+  }
+
+  /* Services Page on Mobile */
+  .distribution,
+  .logistics .container,
+  .complimentary {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .distribution-content h2,
+  .logistics-content h2,
+  .complimentary-content h2 {
+    font-size: 24px; /* Smaller heading on mobile */
+  }
+
+  .distribution-content p,
+  .logistics-content p,
+  .complimentary-content p {
+    font-size: 14px; /* Smaller text on mobile */
+  }
+
+  .distribution-image img,
+  .logistics-image img,
+  .complimentary-image img {
+    width: 100%; /* Full width on mobile */
+    max-width: 400px; /* Prevent it from getting too large */
   }
 }
