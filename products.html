@@ -8,18 +8,17 @@
   <title>OSTA Trading - Our Products</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/products.css">
 </head>
 <body>
   <header>
     <div class="container">
       <div class="logo">
-        <span class="logo-icon">🧬</span> OSTA Trading
+        <img src="assets/logo_osta.png" alt="OSTA Trading Logo" class="logo-image">
       </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="products.html">Products</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="blog.html">Blog/News</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -34,9 +33,9 @@
     </section>
 
     <section class="product-tabs container">
-      <label for="tab-all" class="tab">All Products</label>
-      <label for="tab-pharma" class="tab">Pharmaceuticals</label>
-      <label for="tab-food" class="tab">Food Industry</label>
+      <button class="tab active" data-tab="all">All Products</button>
+      <button class="tab" data-tab="pharma">Pharmaceuticals</button>
+      <button class="tab" data-tab="food">Food Industry</button>
     </section>
 
     <section class="search-bar container">
@@ -47,12 +46,7 @@
     </section>
 
     <div class="categories">
-      <!-- Tab inputs -->
-      <input type="radio" id="tab-all" name="product-tabs" checked>
-      <input type="radio" id="tab-pharma" name="product-tabs">
-      <input type="radio" id="tab-food" name="product-tabs">
-
-      <section class="category-apis container pharma" id="A">
+      <section class="category-apis container" data-category="pharma">
         <h2>APIs (Active Pharmaceutical Ingredients)</h2>
         <div class="product-grid">
           <div class="product-card">
@@ -73,7 +67,7 @@
         </div>
       </section>
 
-      <section class="category-excipients container pharma" id="C">
+      <section class="category-excipients container" data-category="pharma">
         <h2>Excipients</h2>
         <div class="product-grid">
           <div class="product-card">
@@ -94,7 +88,7 @@
         </div>
       </section>
 
-      <section class="category-veterinary container pharma" id="A">
+      <section class="category-veterinary container" data-category="pharma">
         <h2>Veterinary Products</h2>
         <div class="product-grid">
           <div class="product-card">
@@ -115,7 +109,7 @@
         </div>
       </section>
 
-      <section class="category-food container food" id="C">
+      <section class="category-food container" data-category="food">
         <h2>Ingredients for Food Industry</h2>
         <div class="product-grid">
           <div class="product-card">
@@ -146,5 +140,40 @@
       <p>Email: info@ostatrading.com</p>
     </div>
   </footer>
+
+  <script>
+    // JavaScript to handle tab switching
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.product-tabs .tab');
+      const categories = document.querySelectorAll('.categories [data-category]');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Remove active class from all tabs
+          tabs.forEach(t => t.classList.remove('active'));
+          // Add active class to the clicked tab
+          tab.classList.add('active');
+
+          // Get the target tab value
+          const targetTab = tab.getAttribute('data-tab');
+
+          // Show/hide categories based on the selected tab
+          categories.forEach(category => {
+            const categoryType = category.getAttribute('data-category');
+            if (targetTab === 'all') {
+              category.style.display = 'block';
+            } else if (targetTab === categoryType) {
+              category.style.display = 'block';
+            } else {
+              category.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Trigger click on the "All Products" tab to show all categories by default
+      document.querySelector('.tab[data-tab="all"]').click();
+    });
+  </script>
 </body>
 </html>
