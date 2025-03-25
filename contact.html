@@ -3,82 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="title" content="Contact OSTA Trading – Pharmaceutical Supplier">
-  <meta name="description" content="Get in touch with OSTA Trading for inquiries.">
-  <title>OSTA Trading - Contact</title>
+  <meta name="title" content="OSTA Trading – Contact Us">
+  <meta name="description" content="Get in touch with OSTA Trading for inquiries about our APIs and excipients for the pharmaceutical industry.">
+  <title>OSTA Trading - Contact Us</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-    .contact-section {
-      padding: 48px 0;
-      text-align: center;
-    }
-
-    .contact-section h2 {
-      font-size: 32px;
-      color: #1E3A8A;
-      margin-bottom: 16px;
-    }
-
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .contact-form input, .contact-form textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 16px;
-      border: 1px solid #E5E7EB;
-      border-radius: 4px;
-    }
-
-    .contact-info {
-      margin-top: 32px;
-    }
-
-    .contact-info p {
-      margin: 8px 0;
-    }
-
-    .map-placeholder {
-      background-color: #E5E7EB;
-      height: 200px;
-      margin-top: 16px;
-    }
-  </style>
 </head>
 <body>
   <header>
-    <nav class="container">
-      <div class="logo">OSTA Trading</div>
+    <div class="container">
+      <div class="logo">
+        <img src="assets/logo_osta.png" alt="OSTA Trading Logo" class="logo-image">
+      </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="products.html">Products</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog/News</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
-      <div class="nav-right">
-        <input type="text" placeholder="Search...">
-        <a href="#">DE</a> | <a href="#">EN</a>
-      </div>
-    </nav>
+      <a href="contact.html" class="cta-btn">Get in Touch</a>
+    </div>
   </header>
 
   <main>
-    <section class="contact-section container">
-      <h2>We’d Love to Hear from You</h2>
-      <form class="contact-form">
-        <input type="text" placeholder="Name" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Message" rows="5" required></textarea>
-        <button type="submit" class="btn">Submit</button>
-      </form>
-      <div class="contact-info">
-        <p>Phone: +123-456-7890</p>
-        <p>Email: info@ostatrading.com</p>
-        <div class="map-placeholder">Flat Map Placeholder</div>
+    <section class="contact container">
+      <div class="contact-form">
+        <h1>Contact us</h1>
+        <p class="contact-quote">The harder you work for something, the greater you’ll feel when you achieve it.</p>
+        <form action="#" method="POST">
+          <div class="form-group">
+            <label for="topic">Topic</label>
+            <select id="topic" name="topic" required>
+              <option value="" disabled selected>Select a topic</option>
+              <option value="inquiry">General Inquiry</option>
+              <option value="product">Product Information</option>
+              <option value="support">Support</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Description (optional)</label>
+            <textarea id="description" name="description" rows="4"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Request</button>
+        </form>
+      </div>
+      <div class="contact-map">
+        <!-- Placeholder for the map (can be replaced with an actual map embed in a real project) -->
+        <div class="map-placeholder">
+          <img src="assets/map-placeholder.jpg" alt="Map showing OSTA Trading location">
+        </div>
       </div>
     </section>
   </main>

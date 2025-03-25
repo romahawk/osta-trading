@@ -60,8 +60,7 @@ header .container {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 32px;
-  text-transform: uppercase;
+  gap: 24px;
 }
 
 .nav-links li a {
@@ -112,7 +111,7 @@ header .container {
 }
 
 .cta-btn {
-  background-color: rgba(30, 58, 138, 0.9);
+  background-color: #1E3A8A;
   color: #ffffff; /* White text */
   padding: 8px 16px;
   text-decoration: none;
@@ -150,6 +149,14 @@ footer p {
 }
 
 /* Quick Links Section */
+.quick-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 40px 0;
+}
+
+/* Style the link wrapping the card */
 .card-link {
   text-decoration: none; /* Remove default underline from the link */
   color: inherit; /* Inherit text color to avoid default link color */
@@ -206,6 +213,256 @@ footer p {
   outline-offset: 2px; /* Space between the outline and card */
 }
 
+/* Mission Section */
+.mission {
+  width: 100%; /* Full width */
+  max-width: none; /* Override any max-width constraints */
+  background-color: #F5F5F5; /* Light gray background to match the image */
+  padding: 40px 0; /* Vertical padding for spacing */
+}
+
+.mission .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px; /* Space between text and image */
+}
+
+.mission-content {
+  flex: 1; /* Take up remaining space */
+}
+
+.mission-content h2 {
+  color: #1E3A8A; /* Navy blue to match the theme */
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.mission-content p {
+  color: #333; /* Dark gray for readability */
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.mission-image {
+  flex: 0 0 auto; /* Prevent the image from growing */
+}
+
+.mission-image img {
+  width: 400px; /* As specified in the HTML */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for the image */
+}
+
+/* About Section */
+.about-section h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Blog Section */
+.blog {
+  padding: 40px 0;
+}
+
+.blog h1 {
+  color: #1E3A8A; /* Navy blue to match the theme */
+  font-size: 32px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.blog-post {
+  background-color: #FFFFFF; /* White background for each post */
+  border-radius: 8px;
+  overflow: hidden; /* Ensure rounded corners apply to the image */
+  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.blog-post-link {
+  display: flex;
+  text-decoration: none; /* Remove default underline from the link */
+  color: inherit; /* Inherit text color */
+}
+
+.blog-post-image {
+  flex: 0 0 200px; /* Fixed width for the image */
+}
+
+.blog-post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image scales properly */
+}
+
+.blog-post-content {
+  flex: 1;
+  padding: 16px;
+}
+
+.blog-post-content h2 {
+  color: #1E3A8A; /* Navy blue */
+  font-size: 20px;
+  margin-bottom: 8px;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.blog-post-content p {
+  color: #666; /* Light gray for the excerpt */
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.blog-post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.blog-post-meta span:first-child {
+  color: #999; /* Lighter gray for the date/author */
+}
+
+.blog-post-meta .read-more {
+  color: #1E3A8A; /* Navy blue */
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effects */
+.blog-post-link:hover .blog-post {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Drop shadow on hover */
+}
+
+.blog-post-link:hover .blog-post-content h2 {
+  color: #3B82F6; /* Lighter blue on hover */
+}
+
+.blog-post-link:hover .blog-post-meta .read-more {
+  color: #3B82F6; /* Lighter blue on hover */
+}
+
+/* Focus Styles for Accessibility */
+.blog-post-link:focus .blog-post {
+  outline: 2px solid #60A5FA; /* Medium blue outline on focus */
+  outline-offset: 2px;
+}
+
+/* Contact Section */
+.contact {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.contact-form {
+  flex: 1;
+}
+
+.contact-form h1 {
+  color: #1E3A8A; /* Navy blue to match the theme */
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.contact-quote {
+  color: #666; /* Light gray for the quote */
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: #333;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.form-group select,
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.form-group select:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #1E3A8A; /* Navy blue on focus */
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical; /* Allow vertical resizing only */
+}
+
+.submit-btn {
+  background-color: #1E3A8A; /* Navy blue */
+  color: #FFFFFF;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+.submit-btn:hover {
+  background-color: #3B82F6; /* Lighter blue on hover */
+}
+
+.contact-map {
+  flex: 1;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 400px;
+  background-color: #F5F5F5; /* Light gray placeholder */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image scales properly */
+  border-radius: 8px;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -262,5 +519,65 @@ footer p {
   .mission-image img {
     width: 100%; /* Full width on mobile */
     max-width: 400px; /* Prevent it from getting too large */
+  }
+
+  /* Blog Section on Mobile */
+  .blog h1 {
+    font-size: 24px; /* Smaller heading on mobile */
+  }
+
+  .blog-post-link {
+    flex-direction: column;
+  }
+
+  .blog-post-image {
+    flex: 0 0 auto; /* Reset fixed width */
+    width: 100%;
+    height: 150px; /* Fixed height for mobile */
+  }
+
+  .blog-post-content h2 {
+    font-size: 18px; /* Smaller title on mobile */
+  }
+
+  .blog-post-content p {
+    font-size: 14px; /* Smaller excerpt on mobile */
+  }
+
+  .blog-post-meta {
+    font-size: 12px; /* Smaller meta text on mobile */
+  }
+
+  /* Contact Section on Mobile */
+  .contact {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .contact-form h1 {
+    font-size: 24px; /* Smaller heading on mobile */
+  }
+
+  .contact-quote {
+    font-size: 14px; /* Smaller quote on mobile */
+  }
+
+  .form-group label {
+    font-size: 12px; /* Smaller label on mobile */
+  }
+
+  .form-group select,
+  .form-group input,
+  .form-group textarea {
+    font-size: 14px; /* Smaller input text on mobile */
+  }
+
+  .submit-btn {
+    font-size: 14px; /* Smaller button text on mobile */
+    padding: 10px 20px;
+  }
+
+  .map-placeholder {
+    height: 300px; /* Smaller map height on mobile */
   }
 }
