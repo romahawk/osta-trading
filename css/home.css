@@ -45,7 +45,7 @@
 .hero-content p {
   font-size: 20px;
   color: #E5E7EB; /* Light gray text for contrast */
-  margin-bottom: 24px;
+  margin-bottom: 32px;
   line-height: 1.5;
 }
 
@@ -89,8 +89,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 32px;
   flex-wrap: wrap;
+  padding: 32px 0;
 }
 
 .trusted-by span {
