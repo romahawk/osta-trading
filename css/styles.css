@@ -189,6 +189,53 @@ footer p {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Drop shadow on hover */
 }
 
+/* Mission Section */
+.mission {
+  width: 100%; /* Full width */
+  max-width: none; /* Override any max-width constraints */
+  background-color: #F5F5F5; /* Light gray background to match the image */
+  padding: 40px 0; /* Vertical padding for spacing */
+}
+
+.mission .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px; /* Space between text and image */
+}
+
+.mission-content {
+  flex: 1; /* Take up remaining space */
+}
+
+.mission-content h2 {
+  color: #1E3A8A; /* Navy blue to match the theme */
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.mission-content p {
+  color: #333; /* Dark gray for readability */
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.mission-image {
+  flex: 0 0 auto; /* Prevent the image from growing */
+}
+
+.mission-image img {
+  width: 400px; /* As specified in the HTML */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for the image */
+}
+
+.story-image img {
+  width: 400px; /* As specified in the HTML */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for the image */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   header .container {
@@ -225,5 +272,24 @@ footer p {
 
   .quick-links .card img {
     height: 150px; /* Smaller image height on mobile */
+  }
+
+  /* Stack mission content and image vertically on mobile */
+  .mission .container {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .mission-content h2 {
+    font-size: 24px; /* Smaller heading on mobile */
+  }
+
+  .mission-content p {
+    font-size: 14px; /* Smaller text on mobile */
+  }
+
+  .mission-image img {
+    width: 100%; /* Full width on mobile */
+    max-width: 400px; /* Prevent it from getting too large */
   }
 }
