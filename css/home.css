@@ -1,28 +1,52 @@
-/* Homepage-specific styles */
+/* Home-specific styles */
+
+/* Hero Section */
 .hero {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url('../assets/hero-bg.jpg'); /* Add background image with overlay */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 80px 0; /* Generous padding */
+  height: 100vh; /* Full viewport height */
+  width: 100%; /* Full width */
+  background-image: url('../assets/hero-bg.jpg'); /* Placeholder background image */
+  background-size: cover; /* Scale the image to cover the entire section */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  position: relative; /* For the overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  position: relative; /* For overlay positioning */
+  padding: 0; /* Remove default padding */
 }
 
-.hero h1 {
+/* Overlay to improve text readability */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 58, 138, 0.5); /* Navy blue overlay with 50% opacity */
+  z-index: 1; /* Place the overlay above the background image but below the content */
+}
+
+.hero-content {
+  position: relative; /* Ensure content is above the overlay */
+  z-index: 2; /* Place content above the overlay */
+  max-width: 800px; /* Constrain content width for readability */
+  padding: 24px;
+}
+
+.hero-content h1 {
   font-size: 48px;
-  color: #FFFFFF; /* White text for contrast on dark overlay */
-  font-weight: 700;
+  color: #FFFFFF; /* White text for contrast against the overlay */
   margin-bottom: 16px;
+  font-weight: 700;
 }
 
-.hero p {
-  font-size: 18px;
-  color: #E5E7EB; /* Light gray for contrast */
+.hero-content p {
+  font-size: 20px;
+  color: #E5E7EB; /* Light gray text for contrast */
   margin-bottom: 24px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  line-height: 1.5;
 }
 
 .hero-buttons {
@@ -32,18 +56,33 @@
   margin-bottom: 32px;
 }
 
-.btn-secondary {
-  background-color: transparent; /* Transparent background for better contrast */
+.btn {
+  background-color: #1E3A8A; /* Navy blue */
   color: #FFFFFF;
-  border: 2px solid #FFFFFF;
-  padding: 10px 20px;
-  border-radius: 20px;
+  padding: 12px 24px;
   text-decoration: none;
-  font-size: 16px;
+  border-radius: 20px;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #3B82F6; /* Lighter blue on hover */
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: #1E3A8A; /* Navy blue text */
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+  background-color: #3B82F6; /* Lighter blue on hover */
+  color: #FFFFFF;
 }
 
 .trusted-by {
@@ -51,25 +90,84 @@
   justify-content: center;
   align-items: center;
   gap: 16px;
-  color: #E5E7EB; /* Light gray for contrast */
-  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+.trusted-by span {
+  font-size: 16px;
+  color: #E5E7EB; /* Light gray text */
 }
 
 .trusted-by img {
-  height: 24px; /* Placeholder logo size */
-  filter: grayscale(100%) brightness(200%); /* Grayscale and brighten for contrast */
+  height: 40px; /* Adjust logo size */
+  filter: brightness(0) invert(1); /* Make logos white for contrast */
 }
 
+/* Quick Links Section */
+.quick-links {
+  padding: 48px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background-color: #F5F5F5; /* Light gray background */
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  font-size: 20px;
+  color: #1E3A8A; /* Navy blue */
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #666; /* Gray */
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .hero h1 {
+  .hero-content h1 {
     font-size: 32px;
   }
 
-  .hero p {
+  .hero-content p {
     font-size: 16px;
   }
 
   .hero-buttons {
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn, .btn-secondary {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .trusted-by img {
+    height: 32px;
+  }
+
+  .quick-links {
+    grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 13px;
   }
 }

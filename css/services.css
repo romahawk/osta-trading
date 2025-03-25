@@ -1,0 +1,108 @@
+/* Services-specific styles */
+.page-title {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.page-title h1 {
+  font-size: 48px;
+  color: #1E3A8A; /* Navy blue */
+  font-weight: 700;
+}
+
+.distribution,
+.logistics,
+.complimentary {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 48px 0;
+}
+
+.distribution {
+  background-color: #FFFFFF; /* White background */
+}
+
+.logistics {
+  background-color: #F5F5F5; /* Light gray background for contrast */
+}
+
+.complimentary {
+  background-color: #FFFFFF; /* White background */
+}
+
+.distribution-image,
+.logistics-image,
+.complimentary-image {
+  flex: 1;
+  text-align: center;
+}
+
+.distribution-icon,
+.logistics-icon,
+.complimentary-icon {
+  font-size: 100px; /* Large icon size */
+  color: #1E3A8A; /* Navy blue */
+}
+
+.distribution-content,
+.logistics-content,
+.complimentary-content {
+  flex: 2;
+}
+
+.distribution-content h2,
+.logistics-content h2,
+.complimentary-content h2 {
+  font-size: 32px;
+  color: #1E3A8A; /* Navy blue */
+  margin-bottom: 16px;
+}
+
+.distribution-content p,
+.logistics-content p,
+.complimentary-content p {
+  font-size: 16px;
+  color: #666; /* Gray */
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .page-title h1 {
+    font-size: 32px;
+  }
+
+  .distribution,
+  .logistics,
+  .complimentary {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .distribution-image,
+  .logistics-image,
+  .complimentary-image {
+    margin-bottom: 24px;
+  }
+
+  .distribution-content h2,
+  .logistics-content h2,
+  .complimentary-content h2 {
+    font-size: 24px;
+  }
+
+  .distribution-content p,
+  .logistics-content p,
+  .complimentary-content p {
+    font-size: 14px;
+  }
+
+  /* On mobile, ensure the image appears after the text for all sections */
+  .logistics-image {
+    order: 2; /* Ensure the image comes after the text on mobile */
+  }
+
+  .logistics-content {
+    order: 1; /* Ensure the text comes first on mobile */
+  }
+}

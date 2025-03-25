@@ -1,0 +1,232 @@
+/* Products-specific styles */
+.page-title {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.page-title h1 {
+  font-size: 48px;
+  color: #1E3A8A; /* Navy blue */
+  font-weight: 700;
+}
+
+.product-tabs {
+  padding: 24px 0;
+  text-align: center;
+}
+
+.product-tabs .tab {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 4px;
+  background-color: #E5E7EB; /* Light gray background for inactive tabs */
+  color: #666; /* Gray text */
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Style the active tab (when its corresponding input is checked) */
+#tab-all:checked ~ .category-apis,
+#tab-all:checked ~ .category-excipients,
+#tab-all:checked ~ .category-veterinary,
+#tab-all:checked ~ .category-food {
+  display: block;
+}
+
+#tab-pharma:checked ~ .pharma {
+  display: block;
+}
+
+#tab-food:checked ~ .food {
+  display: block;
+}
+
+/* Style the tab label when its corresponding input is checked */
+#tab-all:checked + #tab-pharma + #tab-food + .category-apis + .category-excipients + .category-veterinary + .category-food + .product-tabs .tab[for="tab-all"],
+#tab-pharma:checked + #tab-food + .category-apis + .category-excipients + .category-veterinary + .category-food + .product-tabs .tab[for="tab-pharma"],
+#tab-food:checked + .category-apis + .category-excipients + .category-veterinary + .category-food + .product-tabs .tab[for="tab-food"] {
+  background-color: #1E3A8A; /* Navy blue background for active tab */
+  color: #FFFFFF; /* White text */
+}
+
+/* Search Bar */
+.search-bar {
+  background-color: #F5F5F5; /* Light gray background */
+  padding: 24px 0;
+  text-align: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-form input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 16px;
+  border: 1px solid #E5E7EB; /* Light gray border */
+  border-radius: 20px;
+  font-size: 16px;
+  color: #666; /* Gray text */
+  outline: none;
+}
+
+.search-form input[type="text"]::placeholder {
+  color: #999; /* Lighter gray for placeholder */
+}
+
+.search-form .search-btn {
+  background-color: #1E3A8A; /* Navy blue */
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-form .search-btn:hover {
+  background-color: #3B82F6; /* Lighter blue on hover */
+}
+
+/* Categories Container */
+.categories {
+  position: relative;
+}
+
+/* Hide the radio inputs */
+.categories input {
+  display: none;
+}
+
+/* Category Sections */
+.category-apis,
+.category-excipients,
+.category-veterinary,
+.category-food {
+  padding: 48px 0;
+  display: none; /* Hide all categories by default */
+}
+
+/* Default visibility (when "All Products" is checked on page load) */
+#tab-all:checked ~ .category-apis,
+#tab-all:checked ~ .category-excipients,
+#tab-all:checked ~ .category-veterinary,
+#tab-all:checked ~ .category-food {
+  display: block;
+}
+
+/* Show categories based on selected tab */
+#tab-pharma:checked ~ .pharma {
+  display: block;
+}
+
+#tab-food:checked ~ .food {
+  display: block;
+}
+
+.category-apis {
+  background-color: #FFFFFF; /* White background */
+}
+
+.category-excipients {
+  background-color: #F5F5F5; /* Light gray background for contrast */
+}
+
+.category-veterinary {
+  background-color: #FFFFFF; /* White background */
+}
+
+.category-food {
+  background-color: #F5F5F5; /* Light gray background for contrast */
+}
+
+.category-apis h2,
+.category-excipients h2,
+.category-veterinary h2,
+.category-food h2 {
+  font-size: 32px;
+  color: #1E3A8A; /* Navy blue */
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.product-card {
+  background-color: #FFFFFF;
+  padding: 24px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #E5E7EB; /* Light gray border for subtle definition */
+}
+
+.product-card h3 {
+  font-size: 20px;
+  color: #1E3A8A; /* Navy blue */
+  margin-bottom: 8px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #666; /* Gray */
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .page-title h1 {
+    font-size: 32px;
+  }
+
+  .product-tabs .tab {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin: 4px;
+  }
+
+  .search-form {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .search-form input[type="text"] {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .search-form .search-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .category-apis h2,
+  .category-excipients h2,
+  .category-veterinary h2,
+  .category-food h2 {
+    font-size: 24px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+  }
+
+  .product-card h3 {
+    font-size: 18px;
+  }
+
+  .product-card p {
+    font-size: 13px;
+  }
+}

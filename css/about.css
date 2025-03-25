@@ -1,0 +1,298 @@
+/* About Us-specific styles */
+.page-title {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.page-title h1 {
+  font-size: 48px;
+  color: #1E3A8A; /* Navy blue */
+  font-weight: 700;
+}
+
+.story,
+.mission {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 48px 0;
+}
+
+.story {
+  background-color: #FFFFFF; /* White background */
+}
+
+.mission {
+  background-color: #F5F5F5; /* Light gray background for contrast */
+}
+
+.story-image,
+.mission-image {
+  flex: 1;
+  text-align: center;
+}
+
+.story-icon,
+.mission-icon {
+  font-size: 100px; /* Large icon size */
+  color: #1E3A8A; /* Navy blue */
+}
+
+.story-content,
+.mission-content {
+  flex: 2;
+}
+
+.story-content h2,
+.mission-content h2 {
+  font-size: 32px;
+  color: #1E3A8A; /* Navy blue */
+  margin-bottom: 16px;
+}
+
+.story-content p,
+.mission-content p {
+  font-size: 16px;
+  color: #666; /* Gray */
+  line-height: 1.6;
+}
+
+/* Team Section */
+.team {
+  background-color: #FFFFFF; /* White background */
+  padding: 48px 0;
+  text-align: center;
+}
+
+.team h2 {
+  font-size: 32px;
+  color: #1E3A8A; /* Navy blue */
+  margin-bottom: 16px;
+}
+
+.team-subheading {
+  font-size: 16px;
+  color: #666; /* Gray */
+  margin-bottom: 32px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-members {
+  display: flex;
+  gap: 24px;
+}
+
+.team-card {
+  flex: 1;
+  text-align: center;
+}
+
+.team-icon {
+  font-size: 64px; /* Larger icon for team members */
+  color: #1E3A8A; /* Navy blue */
+  margin-bottom: 16px;
+}
+
+.team-card h3 {
+  font-size: 20px;
+  color: #1E3A8A; /* Navy blue */
+  margin-bottom: 8px;
+}
+
+.team-role {
+  font-size: 16px;
+  color: #666; /* Gray */
+  margin-bottom: 8px;
+  font-weight: 700; /* Bold to match wireframe */
+}
+
+.team-card p {
+  font-size: 14px;
+  color: #666; /* Gray */
+  line-height: 1.5;
+}
+
+/* Milestones Section */
+.milestones {
+  background-color: #F5F5F5; /* Light gray background for contrast */
+  padding: 48px 0;
+  text-align: center;
+}
+
+.milestones h2 {
+  font-size: 32px;
+  color: #1E3A8A; /* Navy blue */
+  margin-bottom: 16px;
+}
+
+.milestones-subheading {
+  font-size: 16px;
+  color: #666; /* Gray */
+  margin-bottom: 32px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: #1E3A8A; /* Navy blue timeline line */
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline-item.left {
+  flex-direction: row;
+}
+
+.timeline-item.right {
+  flex-direction: row-reverse;
+}
+
+.timeline-year {
+  width: 60px;
+  height: 60px;
+  background-color: #1E3A8A; /* Navy blue */
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timeline-content {
+  width: 45%;
+  text-align: left;
+}
+
+.timeline-item.right .timeline-content {
+  text-align: right;
+}
+
+.timeline-content h3 {
+  font-size: 20px;
+  color: #1E3A8A; /* Navy blue */
+  margin-bottom: 8px;
+}
+
+.timeline-content p {
+  font-size: 14px;
+  color: #666; /* Gray */
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .page-title h1 {
+    font-size: 32px;
+  }
+
+  .story,
+  .mission {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .story-image,
+  .mission-image {
+    margin-bottom: 24px;
+  }
+
+  .story-content h2,
+  .mission-content h2 {
+    font-size: 24px;
+  }
+
+  .story-content p,
+  .mission-content p {
+    font-size: 14px;
+  }
+
+  /* On mobile, ensure the image appears after the text for both sections */
+  .mission-image {
+    order: 2; /* Ensure the image comes after the text on mobile */
+  }
+
+  .mission-content {
+    order: 1; /* Ensure the text comes first on mobile */
+  }
+
+  /* Team Section on Mobile */
+  .team h2 {
+    font-size: 24px;
+  }
+
+  .team-subheading {
+    font-size: 14px;
+  }
+
+  .team-members {
+    flex-direction: column;
+  }
+
+  .team-card {
+    margin-bottom: 24px;
+  }
+
+  /* Milestones Section on Mobile */
+  .milestones h2 {
+    font-size: 24px;
+  }
+
+  .milestones-subheading {
+    font-size: 14px;
+  }
+
+  .timeline::before {
+    left: 20px; /* Move the timeline line to the left */
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 40px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    flex-direction: column;
+  }
+
+  .timeline-year {
+    left: 0;
+    transform: none;
+  }
+
+  .timeline-content {
+    width: 100%;
+    text-align: left;
+  }
+
+  .timeline-item.right .timeline-content {
+    text-align: left;
+  }
+}

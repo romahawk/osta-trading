@@ -1,41 +1,31 @@
-/* Reset default styles */
+/* Reset and Base Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Global styles for sticky footer */
-html, body {
-  height: 100%; /* Ensure the body takes up the full viewport height */
-}
-
 body {
-  font-family: 'Roboto', sans-serif; /* Web-safe font */
+  font-family: 'Roboto', sans-serif;
   color: #333;
-  background-color: #FFFFFF; /* White background */
-  display: flex; /* Use flexbox for sticky footer */
-  flex-direction: column; /* Stack children vertically */
-  min-height: 100vh; /* Ensure the body is at least the viewport height */
+  line-height: 1.6;
 }
 
-/* Main content should take up remaining space */
-main {
-  flex: 1 0 auto; /* Grow to fill available space, don't shrink */
-}
-
-/* Container for content */
+/* Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 24px;
 }
 
-/* Navigation Bar */
+/* Header */
 header {
-  background-color: #F5F5F5; /* Light gray background, matching BurgerBliss */
+  background-color: #FFFFFF; /* Navy blue */
+  color: #1E3A8A;
   padding: 16px 0;
-  width: 100%; /* Ensure the header spans the full width */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 header .container {
@@ -45,59 +35,91 @@ header .container {
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333; /* Darker text for contrast */
   display: flex;
   align-items: center;
-  gap: 8px;
 }
 
-.logo-icon {
-  font-size: 20px; /* Size for the emoji/icon */
+.logo-image {
+  height: 64px; /* Adjust the height as needed */
+  width: auto; /* Maintain aspect ratio */
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
+  list-style: none;
   gap: 24px;
 }
 
 .nav-links li a {
-  color: #666; /* Gray text, matching BurgerBliss */
+  color: #1E3A8A; /* White text for all links by default */
   text-decoration: none;
   font-size: 16px;
+  position: relative; /* For the underline effect */
+  transition: color 0.3s;
+  padding-bottom: 4px; /* Space for the underline */
 }
 
-.nav-links li a:hover {
-  color: #1E3A8A; /* Navy blue on hover, matching the brand */
+/* Active page styles */
+.nav-links li a.active {
+  color: #1E3A8A; /* Keep white by default */
+  font-weight: 700; /* Bold text for active link */
+}
+
+/* Underline for active page (blue shade) */
+.nav-links li a.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #60A5FA; /* Medium blue underline for active link */
+  bottom: 0;
+  left: 0;
+}
+
+/* Hover effect for active link: change text color to medium blue */
+.nav-links li a.active:hover {
+  color: #60A5FA; /* Medium blue on hover for active link */
+}
+
+/* Hover effect for non-active links: change text color and add underline */
+.nav-links li a:not(.active):hover {
+  color: #3B82F6; /* Lighter blue on hover for non-active links */
+}
+
+/* Underline on hover for non-active links (lighter blue shade) */
+.nav-links li a:not(.active):hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #3B82F6; /* Lighter blue underline for hover */
+  bottom: 0;
+  left: 0;
 }
 
 .cta-btn {
-  background-color: #1E3A8A; /* Navy blue, matching BurgerBliss "Order now" button */
-  color: #FFFFFF;
+  background-color: #1E3A8A;;
+  color: #ffffff; /* Navy blue */
   padding: 8px 16px;
-  border-radius: 20px; /* Rounded corners */
   text-decoration: none;
-  font-size: 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .cta-btn:hover {
-  background-color: #3B82F6; /* Lighter blue on hover */
+  background-color: #3B82F6; /* Lighter blue */
+  color: #FFFFFF;
 }
 
 /* Footer */
 footer {
-  background-color: #1E3A8A;
+  background-color: #1E3A8A; /* Navy blue */
   color: #FFFFFF;
   padding: 24px 0;
   text-align: center;
-  flex-shrink: 0; /* Prevent the footer from shrinking */
-  width: 100%; /* Ensure the footer spans the full width */
-}
-
-footer .container {
-  text-align: center;
+  position: sticky;
+  bottom: 0;
 }
 
 footer a {
@@ -107,31 +129,12 @@ footer a {
 }
 
 footer a:hover {
-  color: #E5E7EB;
+  color: #3B82F6; /* Lighter blue on hover */
 }
 
-/* Buttons (Flat UI) */
-.btn {
-  background-color: #1E3A8A;
-  color: #FFFFFF;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-
-.btn:hover {
-  background-color: #3B82F6; /* Lighter blue on hover */
-}
-
-/* Cards (Flat UI) */
-.card {
-  background-color: #F9FAFB; /* Light gray background */
-  padding: 16px;
-  border-radius: 4px;
-  text-align: center;
+footer p {
+  margin-top: 8px;
+  font-size: 14px;
 }
 
 /* Responsive Design */
@@ -142,16 +145,22 @@ footer a:hover {
   }
 
   .nav-links {
-    display: flex; /* Keep visible for now; you can add a hamburger menu later */
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
   }
 
-  .container {
-    padding: 0 8px;
+  .nav-links li a {
+    font-size: 14px;
+    padding-bottom: 2px; /* Adjust space for underline on mobile */
   }
 
-  .card {
-    margin-bottom: 16px;
+  .nav-links li a.active::after,
+  .nav-links li a:not(.active):hover::after {
+    height: 1px; /* Thinner underline on mobile */
+  }
+
+  .logo-image {
+    height: 32px; /* Slightly smaller logo on mobile */
   }
 }

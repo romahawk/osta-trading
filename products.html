@@ -3,81 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="title" content="OSTA Trading Products – APIs and Excipients">
-  <meta name="description" content="Explore our range of APIs, excipients, and veterinary products.">
-  <title>OSTA Trading - Products</title>
+  <meta name="title" content="Our Products – OSTA Trading">
+  <meta name="description" content="Explore OSTA Trading’s range of APIs, excipients, veterinary products, and ingredients for the food industry.">
+  <title>OSTA Trading - Our Products</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-    .products-section {
-      padding: 48px 0;
-      text-align: center;
-    }
-
-    .products-section h2 {
-      font-size: 32px;
-      color: #1E3A8A;
-      margin-bottom: 16px;
-    }
-
-    .categories, .product-list {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    @media (max-width: 768px) {
-      .categories, .product-list {
-        flex-direction: column;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/products.css">
 </head>
 <body>
   <header>
-    <nav class="container">
-      <div class="logo">OSTA Trading</div>
+    <div class="container">
+      <div class="logo">
+        <span class="logo-icon">🧬</span> OSTA Trading
+      </div>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="products.html">Products</a></li>
         <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Blog/News</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <div class="nav-right">
-        <input type="text" placeholder="Search...">
-        <a href="#">DE</a> | <a href="#">EN</a>
-      </div>
-    </nav>
+      <a href="contact.html" class="cta-btn">Get in Touch</a>
+    </div>
   </header>
 
   <main>
-    <section class="products-section container">
-      <h2>Explore Our Range of APIs and Excipients</h2>
-      <div class="categories">
-        <div class="card">
-          <h3>APIs</h3>
-        </div>
-        <div class="card">
-          <h3>Excipients</h3>
-        </div>
-        <div class="card">
-          <h3>Veterinary Products</h3>
-        </div>
-      </div>
-      <div class="product-list">
-        <div class="card">
-          <h4>Paracetamol API</h4>
-          <p>High Purity, GMP Certified</p>
-          <a href="contact.html" class="btn">Request a Quote</a>
-        </div>
-        <div class="card">
-          <h4>Excipient X</h4>
-          <p>For Tablet Formulation</p>
-          <a href="contact.html" class="btn">Request a Quote</a>
-        </div>
-      </div>
+    <section class="page-title container">
+      <h1>Our Products</h1>
     </section>
+
+    <section class="product-tabs container">
+      <label for="tab-all" class="tab">All Products</label>
+      <label for="tab-pharma" class="tab">Pharmaceuticals</label>
+      <label for="tab-food" class="tab">Food Industry</label>
+    </section>
+
+    <section class="search-bar container">
+      <form class="search-form">
+        <input type="text" placeholder="Search products..." aria-label="Search products">
+        <button type="submit" class="search-btn">Search</button>
+      </form>
+    </section>
+
+    <div class="categories">
+      <!-- Tab inputs -->
+      <input type="radio" id="tab-all" name="product-tabs" checked>
+      <input type="radio" id="tab-pharma" name="product-tabs">
+      <input type="radio" id="tab-food" name="product-tabs">
+
+      <section class="category-apis container pharma" id="A">
+        <h2>APIs (Active Pharmaceutical Ingredients)</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <h3>Acetaminophen</h3>
+            <p>A widely used analgesic and antipyretic for pain relief and fever reduction.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+          <div class="product-card">
+            <h3>Amoxicillin</h3>
+            <p>An antibiotic used to treat a variety of bacterial infections.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+          <div class="product-card">
+            <h3>Atorvastatin</h3>
+            <p>A statin used to lower cholesterol and reduce the risk of heart disease.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-excipients container pharma" id="C">
+        <h2>Excipients</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <h3>Cellulose</h3>
+            <p>A common binder and filler in tablet formulations.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+          <div class="product-card">
+            <h3>Lactose</h3>
+            <p>Used as a filler and diluent in pharmaceutical tablets and capsules.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+          <div class="product-card">
+            <h3>Magnesium Stearate</h3>
+            <p>A lubricant used to improve the flow of powder during tablet manufacturing.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-veterinary container pharma" id="A">
+        <h2>Veterinary Products</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <h3>Amoxicillin (Vet)</h3>
+            <p>An antibiotic for treating bacterial infections in animals.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+          <div class="product-card">
+            <h3>Ivermectin</h3>
+            <p>A parasiticide used to treat and prevent parasitic infections in animals.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+          <div class="product-card">
+            <h3>Tylosin</h3>
+            <p>An antibiotic used for respiratory infections in livestock.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-food container food" id="C">
+        <h2>Ingredients for Food Industry</h2>
+        <div class="product-grid">
+          <div class="product-card">
+            <h3>Citric Acid</h3>
+            <p>A natural preservative and flavor enhancer used in food and beverages.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+          <div class="product-card">
+            <h3>Sodium Benzoate</h3>
+            <p>A preservative used to extend shelf life in food products.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+          <div class="product-card">
+            <h3>Xanthan Gum</h3>
+            <p>A thickener and stabilizer used in food processing.</p>
+            <a href="#" class="btn">Learn More</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
   <footer>
