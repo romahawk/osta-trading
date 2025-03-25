@@ -60,7 +60,8 @@ header .container {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 24px;
+  gap: 32px;
+  text-transform: uppercase;
 }
 
 .nav-links li a {
@@ -111,7 +112,7 @@ header .container {
 }
 
 .cta-btn {
-  background-color: #1E3A8A;
+  background-color: rgba(30, 58, 138, 0.9);
   color: #ffffff; /* White text */
   padding: 8px 16px;
   text-decoration: none;
@@ -149,11 +150,10 @@ footer p {
 }
 
 /* Quick Links Section */
-.quick-links {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 40px 0;
+.card-link {
+  text-decoration: none; /* Remove default underline from the link */
+  color: inherit; /* Inherit text color to avoid default link color */
+  display: block; /* Ensure the link takes up the full card area */
 }
 
 .quick-links .card {
@@ -176,65 +176,36 @@ footer p {
   color: #1E3A8A; /* Navy blue to match the theme */
   font-size: 20px;
   margin: 16px 0 8px;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
 .quick-links .card p {
   color: #666; /* Slightly lighter text for the description */
   font-size: 16px;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
 /* Hover Effect for Cards */
-.quick-links .card:hover {
+.card-link:hover .card {
   transform: scale(1.05); /* Slight zoom-in effect (5% larger) */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Drop shadow on hover */
 }
 
-/* Mission Section */
-.mission {
-  width: 100%; /* Full width */
-  max-width: none; /* Override any max-width constraints */
-  background-color: #F5F5F5; /* Light gray background to match the image */
-  padding: 40px 0; /* Vertical padding for spacing */
+/* Text Color Change on Hover */
+.card-link:hover .card h3 {
+  color: #3B82F6; /* Lighter blue on hover (same as nav links hover) */
 }
 
-.mission .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px; /* Space between text and image */
+.card-link:hover .card p {
+  color: #555; /* Slightly darker gray on hover for the description */
 }
 
-.mission-content {
-  flex: 1; /* Take up remaining space */
+/* Focus Styles for Accessibility */
+.card-link:focus .card {
+  outline: 2px solid #60A5FA; /* Medium blue outline on focus */
+  outline-offset: 2px; /* Space between the outline and card */
 }
 
-.mission-content h2 {
-  color: #1E3A8A; /* Navy blue to match the theme */
-  font-size: 32px;
-  margin-bottom: 16px;
-}
-
-.mission-content p {
-  color: #333; /* Dark gray for readability */
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.mission-image {
-  flex: 0 0 auto; /* Prevent the image from growing */
-}
-
-.mission-image img {
-  width: 400px; /* As specified in the HTML */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Rounded corners for the image */
-}
-
-.story-image img {
-  width: 400px; /* As specified in the HTML */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Rounded corners for the image */
-}
 
 /* Responsive Design */
 @media (max-width: 768px) {
