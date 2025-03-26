@@ -9,6 +9,56 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png">
+  <style>
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .product-card {
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -36,12 +86,14 @@
     <section class="product-tabs container">
       <button class="tab active" data-tab="all">All Products</button>
       <button class="tab" data-tab="pharma">Pharmaceuticals</button>
+      <button class="tab" data-tab="excipients">Excipients</button>
+      <button class="tab" data-tab="veterinary">Veterinary</button>
       <button class="tab" data-tab="food">Food Industry</button>
     </section>
 
     <section class="search-bar container">
-      <form class="search-form">
-        <input type="text" placeholder="Search products..." aria-label="Search products">
+      <form class="search-form" id="product-search-form">
+        <input type="text" id="search-input" placeholder="Search products..." aria-label="Search products">
         <button type="submit" class="search-btn">Search</button>
       </form>
     </section>
@@ -50,62 +102,167 @@
       <section class="category-apis container" data-category="pharma">
         <h2>APIs (Active Pharmaceutical Ingredients)</h2>
         <div class="product-grid">
-          <div class="product-card">
+          <div class="product-card" data-product="acetaminophen">
             <h3>Acetaminophen</h3>
             <p>A widely used analgesic and antipyretic for pain relief and fever reduction.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-product="amoxicillin">
             <h3>Amoxicillin</h3>
             <p>An antibiotic used to treat a variety of bacterial infections.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-product="atorvastatin">
             <h3>Atorvastatin</h3>
             <p>A statin used to lower cholesterol and reduce the risk of heart disease.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="metformin">
+            <h3>Metformin</h3>
+            <p>An oral antidiabetic drug for managing type 2 diabetes.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="ibuprofen">
+            <h3>Ibuprofen</h3>
+            <p>A nonsteroidal anti-inflammatory drug for pain and inflammation.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="omeprazole">
+            <h3>Omeprazole</h3>
+            <p>A proton pump inhibitor used to treat acid reflux and ulcers.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="ciprofloxacin">
+            <h3>Ciprofloxacin</h3>
+            <p>A fluoroquinolone antibiotic for bacterial infections.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="lisinopril">
+            <h3>Lisinopril</h3>
+            <p>An ACE inhibitor used to treat high blood pressure.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="levothyroxine">
+            <h3>Levothyroxine</h3>
+            <p>A synthetic thyroid hormone for hypothyroidism treatment.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="azithromycin">
+            <h3>Azithromycin</h3>
+            <p>A macrolide antibiotic for respiratory and skin infections.</p>
+            <button class="btn learn-more">Learn More</button>
           </div>
         </div>
       </section>
 
-      <section class="category-excipients container" data-category="pharma">
+      <section class="category-excipients container" data-category="excipients">
         <h2>Excipients</h2>
         <div class="product-grid">
-          <div class="product-card">
+          <div class="product-card" data-product="cellulose">
             <h3>Cellulose</h3>
             <p>A common binder and filler in tablet formulations.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-product="lactose">
             <h3>Lactose</h3>
             <p>Used as a filler and diluent in pharmaceutical tablets and capsules.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-product="magnesium_stearate">
             <h3>Magnesium Stearate</h3>
             <p>A lubricant used to improve the flow of powder during tablet manufacturing.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="starch">
+            <h3>Starch</h3>
+            <p>A disintegrant and binder in tablet production.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="silica">
+            <h3>Silica</h3>
+            <p>A glidant to enhance powder flow in manufacturing.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="sorbitol">
+            <h3>Sorbitol</h3>
+            <p>A sweetener and humectant in liquid formulations.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="talc">
+            <h3>Talc</h3>
+            <p>A lubricant and anti-sticking agent in tablets.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="povidone">
+            <h3>Povidone</h3>
+            <p>A binder and solubilizer in pharmaceutical formulations.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="croscarmellose">
+            <h3>Croscarmellose</h3>
+            <p>A superdisintegrant for fast-dissolving tablets.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="stearic_acid">
+            <h3>Stearic Acid</h3>
+            <p>A lubricant and emulsifier in drug production.</p>
+            <button class="btn learn-more">Learn More</button>
           </div>
         </div>
       </section>
 
-      <section class="category-veterinary container" data-category="pharma">
+      <section class="category-veterinary container" data-category="veterinary">
         <h2>Veterinary Products</h2>
         <div class="product-grid">
-          <div class="product-card">
+          <div class="product-card" data-product="amoxicillin_vet">
             <h3>Amoxicillin (Vet)</h3>
             <p>An antibiotic for treating bacterial infections in animals.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-product="ivermectin">
             <h3>Ivermectin</h3>
             <p>A parasiticide used to treat and prevent parasitic infections in animals.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-product="tylosin">
             <h3>Tylosin</h3>
             <p>An antibiotic used for respiratory infections in livestock.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="enrofloxacin">
+            <h3>Enrofloxacin</h3>
+            <p>A broad-spectrum antibiotic for veterinary use.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="fenbendazole">
+            <h3>Fenbendazole</h3>
+            <p>An anthelmintic for deworming in animals.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="oxytetracycline">
+            <h3>Oxytetracycline</h3>
+            <p>An antibiotic for bacterial infections in livestock and poultry.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="carprofen">
+            <h3>Carprofen</h3>
+            <p>A nonsteroidal anti-inflammatory drug for pain relief in animals.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="clavamox">
+            <h3>Clavamox</h3>
+            <p>A combination antibiotic for infections in cats and dogs.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="doxycycline">
+            <h3>Doxycycline</h3>
+            <p>An antibiotic for treating infections in companion animals.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="flunixin">
+            <h3>Flunixin</h3>
+            <p>An anti-inflammatory and analgesic for livestock.</p>
+            <button class="btn learn-more">Learn More</button>
           </div>
         </div>
       </section>
@@ -113,23 +270,67 @@
       <section class="category-food container" data-category="food">
         <h2>Ingredients for Food Industry</h2>
         <div class="product-grid">
-          <div class="product-card">
+          <div class="product-card" data-product="citric_acid">
             <h3>Citric Acid</h3>
             <p>A natural preservative and flavor enhancer used in food and beverages.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-product="sodium_benzoate">
             <h3>Sodium Benzoate</h3>
             <p>A preservative used to extend shelf life in food products.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
           </div>
-          <div class="product-card">
+          <div class="product-card" data-product="xanthan_gum">
             <h3>Xanthan Gum</h3>
             <p>A thickener and stabilizer used in food processing.</p>
-            <a href="#" class="btn">Learn More</a>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="ascorbic_acid">
+            <h3>Ascorbic Acid</h3>
+            <p>A vitamin C source and antioxidant in food preservation.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="sorbitol_food">
+            <h3>Sorbitol</h3>
+            <p>A sugar alcohol used as a sweetener in food products.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="lecithin">
+            <h3>Lecithin</h3>
+            <p>An emulsifier used in chocolate and baked goods.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="guar_gum">
+            <h3>Guar Gum</h3>
+            <p>A thickener and stabilizer for sauces and dressings.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="maltodextrin">
+            <h3>Maltodextrin</h3>
+            <p>A carbohydrate used as a thickener or sweetener.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="sodium_citrate">
+            <h3>Sodium Citrate</h3>
+            <p>A buffering agent and emulsifier in food production.</p>
+            <button class="btn learn-more">Learn More</button>
+          </div>
+          <div class="product-card" data-product="potassium_sorbate">
+            <h3>Potassium Sorbate</h3>
+            <p>A preservative to prevent mold and yeast growth.</p>
+            <button class="btn learn-more">Learn More</button>
           </div>
         </div>
       </section>
+    </div>
+
+    <div class="modal" id="product-modal">
+      <div class="modal-content">
+        <span class="modal-close">×</span>
+        <h3 id="modal-title"></h3>
+        <p id="modal-description"></p>
+        <p id="modal-details"></p>
+      </div>
     </div>
   </main>
 
@@ -143,36 +344,133 @@
   </footer>
 
   <script>
-    // JavaScript to handle tab switching
     document.addEventListener('DOMContentLoaded', () => {
       const tabs = document.querySelectorAll('.product-tabs .tab');
       const categories = document.querySelectorAll('.categories [data-category]');
+      const productCards = document.querySelectorAll('.product-card');
+      const searchForm = document.getElementById('product-search-form');
+      const searchInput = document.getElementById('search-input');
+      const modal = document.getElementById('product-modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalDescription = document.getElementById('modal-description');
+      const modalDetails = document.getElementById('modal-details');
+      const modalClose = document.querySelector('.modal-close');
+      const learnMoreButtons = document.querySelectorAll('.learn-more');
 
+      // Tab switching
       tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-          // Remove active class from all tabs
           tabs.forEach(t => t.classList.remove('active'));
-          // Add active class to the clicked tab
           tab.classList.add('active');
-
-          // Get the target tab value
+          
           const targetTab = tab.getAttribute('data-tab');
-
-          // Show/hide categories based on the selected tab
+          
           categories.forEach(category => {
             const categoryType = category.getAttribute('data-category');
-            if (targetTab === 'all') {
-              category.style.display = 'block';
-            } else if (targetTab === categoryType) {
-              category.style.display = 'block';
-            } else {
-              category.style.display = 'none';
-            }
+            category.style.display = (targetTab === 'all' || targetTab === categoryType) ? 'block' : 'none';
           });
         });
       });
 
-      // Trigger click on the "All Products" tab to show all categories by default
+      // Search functionality
+      searchForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const searchTerm = searchInput.value.trim().toLowerCase();
+        
+        categories.forEach(category => {
+          category.style.display = 'block';
+        });
+        productCards.forEach(card => {
+          card.style.display = 'block';
+        });
+
+        if (searchTerm) {
+          productCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const description = card.querySelector('p').textContent.toLowerCase();
+            
+            card.style.display = (title.includes(searchTerm) || description.includes(searchTerm)) ? 'block' : 'none';
+          });
+
+          categories.forEach(category => {
+            const visibleCards = category.querySelectorAll('.product-card:not([style="display: none;"])');
+            category.style.display = visibleCards.length > 0 ? 'block' : 'none';
+          });
+        }
+
+        tabs.forEach(t => t.classList.remove('active'));
+      });
+
+      // Learn More button functionality
+      learnMoreButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const card = button.closest('.product-card');
+          const productId = card.getAttribute('data-product');
+          const title = card.querySelector('h3').textContent;
+          const description = card.querySelector('p').textContent;
+
+          const productDetails = {
+            acetaminophen: 'CAS: 103-90-2, Used in tablets and syrups, 99% purity.',
+            amoxicillin: 'CAS: 26787-78-0, Broad-spectrum antibiotic, Powder form.',
+            atorvastatin: 'CAS: 134523-00-5, Cholesterol management, White powder.',
+            metformin: 'CAS: 657-24-9, Diabetes treatment, Oral tablets.',
+            ibuprofen: 'CAS: 15687-27-1, Anti-inflammatory, Available in bulk.',
+            omeprazole: 'CAS: 73590-58-6, Acid reflux treatment, Capsules.',
+            ciprofloxacin: 'CAS: 85721-33-1, Antibiotic, Broad-spectrum.',
+            lisinopril: 'CAS: 83915-83-7, Hypertension treatment, Tablets.',
+            levothyroxine: 'CAS: 51-48-9, Thyroid hormone, Powder.',
+            azithromycin: 'CAS: 83905-01-5, Respiratory infections, Oral suspension.',
+            cellulose: 'CAS: 9004-34-6, Binder, Microcrystalline form.',
+            lactose: 'CAS: 63-42-3, Filler, Pharmaceutical grade.',
+            magnesium_stearate: 'CAS: 557-04-0, Lubricant, Fine powder.',
+            starch: 'CAS: 9005-25-8, Disintegrant, Corn-based.',
+            silica: 'CAS: 7631-86-9, Glidant, Colloidal.',
+            sorbitol: 'CAS: 50-70-4, Sweetener, Liquid form.',
+            talc: 'CAS: 14807-96-6, Lubricant, Fine powder.',
+            povidone: 'CAS: 9003-39-8, Binder, Water-soluble.',
+            croscarmellose: 'CAS: 74811-65-7, Superdisintegrant, Tablets.',
+            stearic_acid: 'CAS: 57-11-4, Emulsifier, Solid form.',
+            amoxicillin_vet: 'CAS: 26787-78-0, Veterinary antibiotic, Powder.',
+            ivermectin: 'CAS: 70288-86-7, Parasiticide, Injectable.',
+            tylosin: 'CAS: 1401-69-0, Respiratory treatment, Livestock.',
+            enrofloxacin: 'CAS: 93106-60-6, Antibiotic, Veterinary use.',
+            fenbendazole: 'CAS: 43210-67-9, Dewormer, Powder.',
+            oxytetracycline: 'CAS: 79-57-2, Antibiotic, Livestock.',
+            carprofen: 'CAS: 53716-49-7, Pain relief, Veterinary tablets.',
+            clavamox: 'CAS: N/A, Combination antibiotic, Pet use.',
+            doxycycline: 'CAS: 564-25-0, Antibiotic, Companion animals.',
+            flunixin: 'CAS: 38677-85-9, Anti-inflammatory, Livestock.',
+            citric_acid: 'CAS: 77-92-9, Preservative, Food grade.',
+            sodium_benzoate: 'CAS: 532-32-1, Preservative, Powder.',
+            xanthan_gum: 'CAS: 11138-66-2, Thickener, Food processing.',
+            ascorbic_acid: 'CAS: 50-81-7, Antioxidant, Vitamin C.',
+            sorbitol_food: 'CAS: 50-70-4, Sweetener, Food grade.',
+            lecithin: 'CAS: 8002-43-5, Emulsifier, Soy-based.',
+            guar_gum: 'CAS: 9000-30-0, Stabilizer, Food use.',
+            maltodextrin: 'CAS: 9050-36-6, Thickener, Carbohydrate.',
+            sodium_citrate: 'CAS: 6132-04-3, Emulsifier, Food grade.',
+            potassium_sorbate: 'CAS: 24634-61-5, Preservative, Granular.'
+          };
+
+          modalTitle.textContent = title;
+          modalDescription.textContent = description;
+          modalDetails.textContent = productDetails[productId] || 'Additional details coming soon.';
+          modal.style.display = 'flex';
+        });
+      });
+
+      // Close modal
+      modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+
+      // Trigger "All Products" tab on load
       document.querySelector('.tab[data-tab="all"]').click();
     });
   </script>
