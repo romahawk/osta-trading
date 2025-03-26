@@ -19,6 +19,28 @@
   padding: 48px 0;
 }
 
+.distribution,
+.complimentary {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.logistics {
+  width: 100%;
+  background-color: #F5F5F5;
+  padding: 40px 0;
+}
+
+.logistics .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
 .distribution {
   background-color: #FFFFFF; /* White background */
 }
@@ -31,40 +53,40 @@
   background-color: #FFFFFF; /* White background */
 }
 
-.distribution-image,
-.logistics-image,
-.complimentary-image {
-  flex: 1;
-  text-align: center;
-}
-
-.distribution-icon,
-.logistics-icon,
-.complimentary-icon {
-  font-size: 100px; /* Large icon size */
-  color: #1E3A8A; /* Navy blue */
-}
-
 .distribution-content,
 .logistics-content,
 .complimentary-content {
-  flex: 2;
+  flex: 1;
 }
 
 .distribution-content h2,
 .logistics-content h2,
 .complimentary-content h2 {
+  color: #1E3A8A;
   font-size: 32px;
-  color: #1E3A8A; /* Navy blue */
   margin-bottom: 16px;
 }
 
 .distribution-content p,
 .logistics-content p,
 .complimentary-content p {
+  color: #333;
   font-size: 16px;
-  color: #666; /* Gray */
-  line-height: 1.6;
+  line-height: 1.8;
+}
+
+.distribution-image img,
+.logistics-image img,
+.complimentary-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+}
+
+.distribution-content,
+.logistics-content,
+.complimentary-content {
+  flex: 1;
 }
 
 @media (max-width: 768px) {
@@ -73,16 +95,10 @@
   }
 
   .distribution,
-  .logistics,
+  .logistics .container,
   .complimentary {
     flex-direction: column;
-    text-align: center;
-  }
-
-  .distribution-image,
-  .logistics-image,
-  .complimentary-image {
-    margin-bottom: 24px;
+    gap: 24px;
   }
 
   .distribution-content h2,
@@ -96,6 +112,15 @@
   .complimentary-content p {
     font-size: 14px;
   }
+
+  .distribution-image img,
+  .logistics-image img,
+  .complimentary-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+  }
+
 
   /* On mobile, ensure the image appears after the text for all sections */
   .logistics-image {

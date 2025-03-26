@@ -8,23 +8,31 @@
   <title>OSTA Trading - Our Services</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/services.css">
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png">
 </head>
 <body>
   <header>
     <div class="container">
       <div class="logo">
-        <img src="assets/logo_osta.png" alt="OSTA Trading Logo" class="logo-image">
+        <a href="index.html" class="logo-link">
+          <img src="assets/logo_osta.png" alt="OSTA Trading Logo" class="logo-image">
+        </a>
       </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="services.html" class="active">Services</a></li>
-        <li><a href="blog.html">Blog/News</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <a href="contact.html" class="cta-btn">Get in Touch</a>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="blog.html">Blog/News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="cta-btn">Get in Touch</a>
+      </nav>
+      <button class="burger-menu" aria-label="Toggle navigation menu">
+        <span class="burger-icon"></span>
+      </button>
     </div>
   </header>
 
@@ -39,7 +47,8 @@
       </div>
       <div class="distribution-content">
         <h2>Distribution</h2>
-        <p>Having long-term distribution agreements with many manufacturers, our company can offer customers timely delivery of products with guaranteed high quality at most competitive prices.</p>
+        <p>Through long-term distribution agreements with numerous manufacturers, OSTA Trading GmbH ensures timely delivery of high-quality products at competitive prices, consistently meeting customer expectations with reliability and exceptional service standards.
+        </p>
       </div>
     </section>
 
@@ -67,12 +76,62 @@
   </main>
 
   <footer>
-    <div class="container">
-      <a href="index.html">Home</a> | <a href="about.html">About Us</a> | <a href="products.html">Products</a> | 
-      <a href="services.html">Services</a> | <a href="blog.html">Blog/News</a> | <a href="contact.html">Contact</a>
-      <p><a href="#">Downloads: Product Catalog</a></p>
-      <p>Email: info@ostatrading.com</p>
+    <div class="container footer-content">
+      <div class="footer-column">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="general-conditions.html">General Conditions</a></li>
+          <li><a href="imprint.html">Imprint</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="products.html#food">Ingredients for Food Industry</a></li>
+          <li><a href="products.html#veterinary">Ingredients for Veterinary Medicines</a></li>
+          <li><a href="products.html#pharma">Pharmaceutical Ingredients</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p>OSTA Trading GmbH</p>
+        <p>Senefelder Ring 34, 21465 Reinbek, Germany</p>
+        <p><span class="icon phone"></span>+49 (0) 40 731 28 176</p>
+        <p>Mon-Fri, 8am until 5pm</p>
+        <p><span class="icon email"></span><a href="mailto:info@osta-trading.com">info@osta-trading.com</a></p>
+        <p>We reply within 24 hours</p>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // JavaScript for burger menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const burgerMenu = document.querySelector('.burger-menu');
+      const navMenu = document.querySelector('.nav-menu');
+
+      burgerMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+      });
+
+      // Close menu when a link is clicked
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          burgerMenu.classList.remove('active');
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !burgerMenu.contains(e.target)) {
+          navMenu.classList.remove('active');
+          burgerMenu.classList.remove('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>

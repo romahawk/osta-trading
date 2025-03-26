@@ -3,106 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="title" content="OSTA Trading – Blog/News">
-  <meta name="description" content="Stay updated with the latest industry news and insights from OSTA Trading.">
-  <title>OSTA Trading - Blog/News</title>
+  <meta name="title" content="OSTA Trading – Blog & News">
+  <meta name="description" content="Stay updated with the latest news and insights from OSTA Trading.">
+  <title>OSTA Trading - Blog & News</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/blog.css">
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png">
 </head>
 <body>
   <header>
     <div class="container">
       <div class="logo">
-        <img src="assets/logo_osta.png" alt="OSTA Trading Logo" class="logo-image">
+        <a href="index.html" class="logo-link">
+          <img src="assets/logo_osta.png" alt="OSTA Trading Logo" class="logo-image">
+        </a>
       </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="blog.html" class="active">Blog/News</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <a href="contact.html" class="cta-btn">Get in Touch</a>
+      <button class="burger-menu" aria-label="Toggle navigation menu">
+        <span class="burger-icon"></span>
+      </button>
+      <nav class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog.html" class="active">Blog/News</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="cta-btn">Get in Touch</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="blog container">
-      <h1>Blog</h1>
+      <h1>Blog & News</h1>
       <div class="blog-posts">
+        <!-- Blog Post 1 -->
         <article class="blog-post">
-          <a href="blog-post-1.html" class="blog-post-link">
+          <div class="blog-post-link">
             <div class="blog-post-image">
-              <img src="assets/blog-post-1.jpg" alt="Blog post 1 image">
+              <img src="assets/blog/blog-post-1.jpg" alt="Blog Post 1">
             </div>
             <div class="blog-post-content">
-              <h2>The only moment, the only life we have is in the NOW</h2>
-              <p>What happened a few moments or several years ago is gone, what will happen this evening, or next month when we go on holidays is not here yet.</p>
+              <h2>GenScript Opens New Logistics Hub in Sydney</h2>
+              <div class="blog-post-preview">
+                <p>GenScript opens a new operations site and logistics center in Sydney to improve service for Australia’s biotechnology sector....</p>
+              </div>
+              <div class="blog-post-full" style="display: none;">
+                <p>The Sydney facility is designed to enhance GenScript’s logistical capabilities, offering Australian researchers faster and more efficient access to essential research reagents. By providing a local supply chain, GenScript aims to eliminate obstacles in the procurement process, such as customs clearance and import permits, which can delay research progress.
+
+                  One standout feature of the new site is its next-day shipping service for high-demand products, including mRNA, growth factors, and Cas proteins. “Establishing a logistics hub in Sydney enables us to deliver more localised support to our Australian partners,” stated Sherry Shao, GenScript’s rotating CEO. “This expansion is about building long-term relationships within the region’s biotech ecosystem, allowing our customers to focus entirely on advancing their research.”
+                  </p>
+              </div>
               <div class="blog-post-meta">
-                <span>10 Oct 21, by Jane Ostin</span>
-                <span class="read-more">Read More</span>
+                <span>Posted on March 15, 2025</span>
+                <button class="read-more">Read More</button>
               </div>
             </div>
-          </a>
+          </div>
         </article>
+        <!-- Blog Post 2 -->
         <article class="blog-post">
-          <a href="blog-post-2.html" class="blog-post-link">
+          <div class="blog-post-link">
             <div class="blog-post-image">
-              <img src="assets/blog-post-2.jpg" alt="Blog post 2 image">
+              <img src="assets/blog/blog-post-2.jpg" alt="Blog Post 2">
             </div>
             <div class="blog-post-content">
-              <h2>The only moment, the only life we have is in the NOW</h2>
-              <p>What happened a few moments or several years ago is gone, what will happen this evening, or next month when we go on holidays is not here yet.</p>
+              <h2>Innovations in Veterinary Medicine</h2>
+              <div class="blog-post-preview">
+                <p>Discover the latest trends in veterinary medicine and how OSTA Trading is contributing to the industry...</p>
+              </div>
+              <div class="blog-post-full" style="display: none;">
+                <p>Discover the latest trends in veterinary medicine and how OSTA Trading is contributing to the industry. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              </div>
               <div class="blog-post-meta">
-                <span>10 Oct 21, by Jane Ostin</span>
-                <span class="read-more">Read More</span>
+                <span>Posted on March 10, 2025</span>
+                <button class="read-more">Read More</button>
               </div>
             </div>
-          </a>
+          </div>
         </article>
+        <!-- Add more blog posts as needed -->
+        <!-- Blog Post 3 -->
         <article class="blog-post">
-          <a href="blog-post-3.html" class="blog-post-link">
+          <div class="blog-post-link">
             <div class="blog-post-image">
-              <img src="assets/blog-post-3.jpg" alt="Blog post 3 image">
+              <img src="assets/blog/blog-post-3.jpg" alt="Blog Post 3">
             </div>
             <div class="blog-post-content">
-              <h2>The only moment, the only life we have is in the NOW</h2>
-              <p>What happened a few moments or several years ago is gone, what will happen this evening, or next month when we go on holidays is not here yet.</p>
+              <h2>Pharmaceutical Logistics Market</h2>
+              <div class="blog-post-preview">
+                <p>An overview of the pharmaceutical logistics category  for pharmaceutical procurement teams. This guide provides you...</p>
+              </div>
+              <div class="blog-post-full" style="display: none;">
+                <p>The global pharmaceutical logistics market is a rapidly growing sector that is expected to reach a market size of USD $170.17 billion by 2025, with a compound annual growth rate (CAGR) of 9.2% from 2023 to 2030. The Asia Pacific region is expected to experience the highest growth rate during this period due to the rising demand for pharmaceutical products and increasing investment in healthcare infrastructure.</p>
+                <p>The pharmaceutical logistics market can be further broken down by transportation mode, including air freight, sea freight, and road freight. Air freight is the most commonly used mode of transportation for pharmaceutical products due to its speed and reliability, and it is expected to continue to dominate the market in the coming years.
+                </p>
+              </div>
               <div class="blog-post-meta">
-                <span>10 Oct 21, by Jane Ostin</span>
-                <span class="read-more">Read More</span>
+                <span>Posted on March 10, 2025</span>
+                <button class="read-more">Read More</button>
               </div>
             </div>
-          </a>
-        </article>
-        <article class="blog-post">
-          <a href="blog-post-4.html" class="blog-post-link">
-            <div class="blog-post-image">
-              <img src="assets/blog-post-4.jpg" alt="Blog post 4 image">
-            </div>
-            <div class="blog-post-content">
-              <h2>The only moment, the only life we have is in the NOW</h2>
-              <p>What happened a few moments or several years ago is gone, what will happen this evening, or next month when we go on holidays is not here yet.</p>
-              <div class="blog-post-meta">
-                <span>10 Oct 21, by Jane Ostin</span>
-                <span class="read-more">Read More</span>
-              </div>
-            </div>
-          </a>
+          </div>
         </article>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <a href="index.html">Home</a> | <a href="about.html">About Us</a> | <a href="products.html">Products</a> | 
-      <a href="services.html">Services</a> | <a href="blog.html">Blog/News</a> | <a href="contact.html">Contact</a>
-      <p><a href="#">Downloads: Product Catalog</a></p>
-      <p>Email: info@ostatrading.com</p>
+    <div class="container footer-content">
+      <div class="footer-column">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="general-conditions.html">General Conditions</a></li>
+          <li><a href="imprint.html">Imprint</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Products</h3>
+        <ul>
+          <li><a href="products.html#food">Ingredients for Food Industry</a></li>
+          <li><a href="products.html#veterinary">Ingredients for Veterinary Medicines</a></li>
+          <li><a href="products.html#pharma">Pharmaceutical Ingredients</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p>OSTA Trading GmbH</p>
+        <p>Senefelder Ring 83, 21465 Reinbek, Germany</p>
+        <p><span class="icon phone"></span>+49 (0) 40 731 28 176</p>
+        <p>Mon-Fri, 8am until 5pm</p>
+        <p><span class="icon email"></span><a href="mailto:info@osta-trading.com">info@osta-trading.com</a></p>
+        <p>We reply within 24 hours</p>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // JavaScript for burger menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+      const burgerMenu = document.querySelector('.burger-menu');
+      const navMenu = document.querySelector('.nav-menu');
+
+      burgerMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+      });
+
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          burgerMenu.classList.remove('active');
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!navMenu.contains(e.target) && !burgerMenu.contains(e.target)) {
+          navMenu.classList.remove('active');
+          burgerMenu.classList.remove('active');
+        }
+      });
+
+      // JavaScript for Read More toggle
+      const readMoreButtons = document.querySelectorAll('.read-more');
+      readMoreButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const postContent = button.closest('.blog-post-content');
+          const preview = postContent.querySelector('.blog-post-preview');
+          const fullContent = postContent.querySelector('.blog-post-full');
+
+          if (fullContent.style.display === 'none' || fullContent.style.display === '') {
+            preview.style.display = 'none';
+            fullContent.style.display = 'block';
+            button.textContent = 'Read Less';
+          } else {
+            preview.style.display = 'block';
+            fullContent.style.display = 'none';
+            button.textContent = 'Read More';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

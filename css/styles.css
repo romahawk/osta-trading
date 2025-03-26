@@ -6,21 +6,20 @@
 }
 
 html, body {
-  height: 100%; /* Ensure the body takes up the full viewport height */
+  height: 100%;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   color: #333;
   line-height: 1.6;
-  display: flex; /* Use flexbox to layout the page */
-  flex-direction: column; /* Stack children vertically */
-  min-height: 100vh; /* Ensure the body is at least the viewport height */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* Ensure main content grows to fill remaining space */
 main {
-  flex-grow: 1; /* Main takes up all available space, pushing the footer down */
+  flex-grow: 1;
 }
 
 /* Container */
@@ -32,19 +31,19 @@ main {
 
 /* Header */
 header {
-  background-color: #FFFFFF; /* White */
+  background-color: #FFFFFF;
   color: #1E3A8A;
   padding: 16px 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle box shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
@@ -52,9 +51,85 @@ header .container {
   align-items: center;
 }
 
+.logo-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.8;
+}
+
+.logo-link:focus {
+  outline: 2px solid #60A5FA;
+  outline-offset: 2px;
+}
+
 .logo-image {
-  height: 64px; /* Adjust the height as needed */
-  width: auto; /* Maintain aspect ratio */
+  height: 64px;
+  width: auto;
+}
+
+/* Burger Menu */
+.burger-menu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.burger-icon,
+.burger-icon::before,
+.burger-icon::after {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: #1E3A8A;
+  transition: all 0.3s ease;
+}
+
+.burger-icon {
+  position: relative;
+}
+
+.burger-icon::before,
+.burger-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.burger-icon::before {
+  top: -8px;
+}
+
+.burger-icon::after {
+  bottom: -8px;
+}
+
+.burger-menu.active .burger-icon {
+  background-color: transparent;
+}
+
+.burger-menu.active .burger-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.burger-menu.active .burger-icon::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  position: relative;
 }
 
 .nav-links {
@@ -64,21 +139,19 @@ header .container {
 }
 
 .nav-links li a {
-  color: #1E3A8A; /* Navy blue text for all links by default */
+  color: #1E3A8A;
   text-decoration: none;
   font-size: 16px;
-  position: relative; /* For the underline effect */
+  position: relative;
   transition: color 0.3s;
   padding-bottom: 4px; /* Space for the underline */
 }
 
-/* Active page styles */
 .nav-links li a.active {
-  color: #60A5FA; /* Medium blue for active link by default */
-  font-weight: 700; /* Bold text for active link */
+  color: #60A5FA;
+  font-weight: 700;
 }
 
-/* Underline for active page (blue shade) */
 .nav-links li a.active::after {
   content: '';
   position: absolute;
@@ -89,17 +162,14 @@ header .container {
   left: 0;
 }
 
-/* Hover effect for active link: keep the same color (optional adjustment) */
 .nav-links li a.active:hover {
-  color: #60A5FA; /* Medium blue on hover for active link (same as default) */
+  color: #60A5FA;
 }
 
-/* Hover effect for non-active links: change text color and add underline */
 .nav-links li a:not(.active):hover {
-  color: #3B82F6; /* Lighter blue on hover for non-active links */
+  color: #3B82F6;
 }
 
-/* Underline on hover for non-active links (lighter blue shade) */
 .nav-links li a:not(.active):hover::after {
   content: '';
   position: absolute;
@@ -112,647 +182,62 @@ header .container {
 
 .cta-btn {
   background-color: #1E3A8A;
-  color: #ffffff; /* White text */
-  padding: 8px 16px;
+  color: #FFFFFF;
+  padding: 10px 20px;
   text-decoration: none;
-  border-radius: 20px;
+  border-radius: 24px;
   font-weight: 700;
+  font-size: 16px;
   transition: background-color 0.3s, color 0.3s;
+  position: absolute;
+  right: 0;
 }
 
 .cta-btn:hover {
-  background-color: #3B82F6; /* Lighter blue */
+  background-color: #3B82F6;
   color: #FFFFFF;
 }
 
-/* Footer */
-footer {
-  background-color: #1E3A8A; /* Navy blue */
-  color: #FFFFFF;
-  padding: 24px 0;
-  text-align: center;
-}
-
-footer a {
-  color: #FFFFFF;
-  text-decoration: none;
-  margin: 0 8px;
-}
-
-footer a:hover {
-  color: #3B82F6; /* Lighter blue on hover */
-}
-
-footer p {
-  margin-top: 8px;
-  font-size: 14px;
-}
-
-/* Quick Links Section */
-.quick-links {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 40px 0;
-}
-
-/* Style the link wrapping the card */
-.card-link {
-  text-decoration: none; /* Remove default underline from the link */
-  color: inherit; /* Inherit text color to avoid default link color */
-  display: block; /* Ensure the link takes up the full card area */
-}
-
-.quick-links .card {
-  background-color: #F5F5F5; /* Light gray background to match the image */
-  border-radius: 8px;
-  text-align: center;
-  padding: 16px;
-  flex: 1; /* Each card takes equal width */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
-}
-
-.quick-links .card img {
-  width: 100%; /* Ensure the image fills the card width */
-  height: 200px; /* Fixed height for consistency */
-  object-fit: cover; /* Ensure the image scales properly */
-  border-radius: 8px 8px 0 0; /* Rounded corners only on the top */
-}
-
-.quick-links .card h3 {
-  color: #1E3A8A; /* Navy blue to match the theme */
-  font-size: 20px;
-  margin: 16px 0 8px;
-  transition: color 0.3s ease; /* Smooth color transition on hover */
-}
-
-.quick-links .card p {
-  color: #666; /* Slightly lighter text for the description */
-  font-size: 16px;
-  transition: color 0.3s ease; /* Smooth color transition on hover */
-}
-
-/* Hover Effect for Cards */
-.card-link:hover .card {
-  transform: scale(1.05); /* Slight zoom-in effect (5% larger) */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Drop shadow on hover */
-}
-
-/* Text Color Change on Hover */
-.card-link:hover .card h3 {
-  color: #3B82F6; /* Lighter blue on hover (same as nav links hover) */
-}
-
-.card-link:hover .card p {
-  color: #555; /* Slightly darker gray on hover for the description */
-}
-
-/* Focus Styles for Accessibility */
-.card-link:focus .card {
-  outline: 2px solid #60A5FA; /* Medium blue outline on focus */
-  outline-offset: 2px; /* Space between the outline and card */
-}
-
-/* Mission Section */
-.mission {
-  width: 100%; /* Full width */
-  max-width: none; /* Override any max-width constraints */
-  background-color: #F5F5F5; /* Light gray background to match the image */
-  padding: 40px 0; /* Vertical padding for spacing */
-}
-
-.mission .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px; /* Space between text and image */
-}
-
-.mission-content {
-  flex: 1; /* Take up remaining space */
-}
-
-.mission-content h2 {
-  color: #1E3A8A; /* Navy blue to match the theme */
-  font-size: 32px;
-  margin-bottom: 16px;
-}
-
-.mission-content p {
-  color: #333; /* Dark gray for readability */
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.mission-image {
-  flex: 0 0 auto; /* Prevent the image from growing */
-}
-
-.mission-image img {
-  width: 400px; /* As specified in the HTML */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Rounded corners for the image */
-}
-
-/* About Section */
-.about-section h1 {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
-/* Story Section (from About Us page) */
-.story {
-  padding: 40px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-}
-
-.story-content {
-  flex: 1;
-}
-
-.story-content h2 {
-  color: #1E3A8A; /* Navy blue */
-  font-size: 32px;
-  margin-bottom: 16px;
-}
-
-.story-content p {
-  color: #333; /* Dark gray */
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.story-image {
-  flex: 0 0 auto;
-}
-
-.story-image img {
-  width: 400px;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* Blog Section */
-.blog {
-  padding: 40px 0;
-}
-
-.blog h1 {
-  color: #1E3A8A; /* Navy blue to match the theme */
-  font-size: 32px;
-  margin-bottom: 32px;
-  text-align: center;
-}
-
-.blog-posts {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.blog-post {
-  background-color: #FFFFFF; /* White background for each post */
-  border-radius: 8px;
-  overflow: hidden; /* Ensure rounded corners apply to the image */
-  transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.blog-post-link {
-  display: flex;
-  text-decoration: none; /* Remove default underline from the link */
-  color: inherit; /* Inherit text color */
-}
-
-.blog-post-image {
-  flex: 0 0 200px; /* Fixed width for the image */
-}
-
-.blog-post-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure the image scales properly */
-}
-
-.blog-post-content {
-  flex: 1;
-  padding: 16px;
-}
-
-.blog-post-content h2 {
-  color: #1E3A8A; /* Navy blue */
-  font-size: 20px;
-  margin-bottom: 8px;
-  transition: color 0.3s ease; /* Smooth color transition on hover */
-}
-
-.blog-post-content p {
-  color: #666; /* Light gray for the excerpt */
-  font-size: 16px;
-  margin-bottom: 16px;
-}
-
-.blog-post-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-}
-
-.blog-post-meta span:first-child {
-  color: #999; /* Lighter gray for the date/author */
-}
-
-.blog-post-meta .read-more {
-  color: #1E3A8A; /* Navy blue */
-  font-weight: 700;
-  text-transform: uppercase;
-  transition: color 0.3s ease;
-}
-
-/* Hover Effects */
-.blog-post-link:hover .blog-post {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Drop shadow on hover */
-}
-
-.blog-post-link:hover .blog-post-content h2 {
-  color: #3B82F6; /* Lighter blue on hover */
-}
-
-.blog-post-link:hover .blog-post-meta .read-more {
-  color: #3B82F6; /* Lighter blue on hover */
-}
-
-/* Focus Styles for Accessibility */
-.blog-post-link:focus .blog-post {
-  outline: 2px solid #60A5FA; /* Medium blue outline on focus */
-  outline-offset: 2px;
-}
-
-/* Contact Section */
-.contact {
-  padding: 40px 0;
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.contact-form {
-  flex: 1;
-}
-
-.contact-form h1 {
-  color: #1E3A8A; /* Navy blue to match the theme */
-  font-size: 32px;
-  margin-bottom: 16px;
-}
-
-.contact-quote {
-  color: #666; /* Light gray for the quote */
-  font-size: 16px;
-  margin-bottom: 24px;
-}
-
-.contact-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  color: #333;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.form-group select,
-.form-group input,
-.form-group textarea {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: 'Roboto', sans-serif;
-  transition: border-color 0.3s ease;
-}
-
-.form-group select:focus,
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #1E3A8A; /* Navy blue on focus */
-  outline: none;
-}
-
-.form-group textarea {
-  resize: vertical; /* Allow vertical resizing only */
-}
-
-.submit-btn {
-  background-color: #1E3A8A; /* Navy blue */
-  color: #FFFFFF;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 20px;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: flex-start;
-}
-
-.submit-btn:hover {
-  background-color: #3B82F6; /* Lighter blue on hover */
-}
-
-.contact-map {
-  flex: 1;
-}
-
-.map-placeholder {
-  width: 100%;
-  height: 400px;
-  background-color: #F5F5F5; /* Light gray placeholder */
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.map-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure the image scales properly */
-  border-radius: 8px;
-}
-
-/* Products Page Styles */
-.page-title {
-  padding: 40px 0 20px;
-  text-align: center;
-}
-
-.page-title h1 {
-  color: #1E3A8A; /* Navy blue */
-  font-size: 32px;
-}
-
-/* Product Tabs */
-.product-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  padding: 0 0 20px;
-}
-
-.product-tabs .tab {
-  background: none; /* No background for inactive tabs */
-  border: none; /* Remove default button border */
-  color: #1E3A8A; /* Navy blue text */
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-tabs .tab.active {
-  color: #60A5FA; /* Medium blue for active tab */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for "elevated" effect */
-}
-
-.product-tabs .tab:hover {
-  color: #3B82F6; /* Lighter blue on hover */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow on hover */
-}
-
-.product-tabs .tab.active:hover {
-  color: #60A5FA; /* Keep the active color */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Slightly darker shadow on hover for active tab */
-}
-
-/* Focus Styles for Accessibility */
-.product-tabs .tab:focus {
-  color: #3B82F6; /* Match hover effect */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 0 0 2px #60A5FA; /* Add a focus ring */
-  outline: none;
-}
-
-/* Tabbed Content */
-.categories {
-  padding: 20px 0;
-}
-
-/* Initially hide all categories (JavaScript will show them) */
-.categories [data-category] {
-  display: none;
-}
-
-.category-apis,
-.category-excipients,
-.category-veterinary,
-.category-food {
-  padding: 20px 0;
-}
-
-.category-apis h2,
-.category-excipients h2,
-.category-veterinary h2,
-.category-food h2 {
-  color: #1E3A8A; /* Navy blue */
-  font-size: 24px;
-  margin-bottom: 16px;
-}
-
-/* Product Grid */
-.product-grid {
-  display: flex;
-  gap: 24px;
-  justify-content: space-between;
-}
-
-.product-card {
-  background-color: #FFFFFF; /* White background */
-  border-radius: 8px;
-  padding: 16px;
-  flex: 1;
-  text-align: center;
-  transition: box-shadow 0.3s ease;
-}
-
-.product-card h3 {
-  color: #1E3A8A; /* Navy blue */
-  font-size: 20px;
-  margin-bottom: 8px;
-  transition: color 0.3s ease;
-}
-
-.product-card p {
-  color: #666; /* Light gray */
-  font-size: 16px;
-  margin-bottom: 16px;
-}
-
-.product-card .btn {
-  display: inline-block;
-  background-color: #1E3A8A; /* Navy blue */
-  color: #FFFFFF;
-  padding: 8px 16px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.product-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Drop shadow on hover */
-}
-
-.product-card:hover h3 {
-  color: #3B82F6; /* Lighter blue on hover */
-}
-
-.product-card .btn:hover {
-  background-color: #3B82F6; /* Lighter blue on hover */
-}
-
-/* Search Bar */
-.search-bar {
-  padding: 20px 0;
-  text-align: center;
-}
-
-.search-form {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.search-form input[type="text"] {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  width: 100%;
-  max-width: 400px;
-  font-family: 'Roboto', sans-serif;
-  transition: border-color 0.3s ease;
-}
-
-.search-form input[type="text"]:focus {
-  border-color: #1E3A8A; /* Navy blue on focus */
-  outline: none;
-}
-
-.search-form .search-btn {
-  background-color: #1E3A8A; /* Navy blue */
-  color: #FFFFFF;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.search-form .search-btn:hover {
-  background-color: #3B82F6; /* Lighter blue on hover */
-}
-
-/* Services Page Styles */
-.distribution,
-.complimentary {
-  padding: 40px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-}
-
-.logistics {
-  width: 100%; /* Full width for the section */
-  background-color: #F5F5F5; /* Light gray background */
-  padding: 40px 0;
-}
-
-.logistics .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-}
-
-.distribution-content,
-.logistics-content,
-.complimentary-content {
-  flex: 1;
-}
-
-.distribution-content h2,
-.logistics-content h2,
-.complimentary-content h2 {
-  color: #1E3A8A; /* Navy blue */
-  font-size: 32px; /* Match the story section */
-  margin-bottom: 16px;
-}
-
-.distribution-content p,
-.logistics-content p,
-.complimentary-content p {
-  color: #333; /* Dark gray, match the story section */
-  font-size: 16px;
-  line-height: 1.8;
-}
-
-.distribution-image,
-.logistics-image,
-.complimentary-image {
-  flex: 0 0 auto;
-}
-
-.distribution-image img,
-.logistics-image img,
-.complimentary-image img {
-  width: 400px;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* Responsive Design */
+/* Responsive Design (Global) */
 @media (max-width: 768px) {
   header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    width: 100%;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 16px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-menu.active {
+    display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 16px;
   }
 
   .nav-links {
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
     text-align: center;
   }
 
   .nav-links li a {
-    font-size: 14px;
-    padding-bottom: 2px; /* Adjust space for underline on mobile */
+    font-size: 16px;
+    padding-bottom: 2px;
   }
 
   .nav-links li a.active::after,
@@ -760,197 +245,138 @@ footer p {
     height: 1px; /* Thinner underline on mobile */
   }
 
-  .logo-image {
-    height: 32px; /* Slightly smaller logo on mobile */
-  }
-
-  /* Stack cards vertically on mobile */
-  .quick-links {
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px 0;
-  }
-
-  .quick-links .card img {
-    height: 150px; /* Smaller image height on mobile */
-  }
-
-  /* Stack mission content and image vertically on mobile */
-  .mission .container {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .mission-content h2 {
-    font-size: 24px; /* Smaller heading on mobile */
-  }
-
-  .mission-content p {
-    font-size: 14px; /* Smaller text on mobile */
-  }
-
-  .mission-image img {
-    width: 100%; /* Full width on mobile */
-    max-width: 400px; /* Prevent it from getting too large */
-  }
-
-  /* Stack story content and image vertically on mobile */
-  .story {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .story-content h2 {
-    font-size: 24px; /* Smaller heading on mobile */
-  }
-
-  .story-content p {
-    font-size: 14px; /* Smaller text on mobile */
-  }
-
-  .story-image img {
-    width: 100%; /* Full width on mobile */
-    max-width: 400px; /* Prevent it from getting too large */
-  }
-
-  /* Blog Section on Mobile */
-  .blog h1 {
-    font-size: 24px; /* Smaller heading on mobile */
-  }
-
-  .blog-post-link {
-    flex-direction: column;
-  }
-
-  .blog-post-image {
-    flex: 0 0 auto; /* Reset fixed width */
-    width: 100%;
-    height: 150px; /* Fixed height for mobile */
-  }
-
-  .blog-post-content h2 {
-    font-size: 18px; /* Smaller title on mobile */
-  }
-
-  .blog-post-content p {
-    font-size: 14px; /* Smaller excerpt on mobile */
-  }
-
-  .blog-post-meta {
-    font-size: 12px; /* Smaller meta text on mobile */
-  }
-
-  /* Contact Section on Mobile */
-  .contact {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .contact-form h1 {
-    font-size: 24px; /* Smaller heading on mobile */
-  }
-
-  .contact-quote {
-    font-size: 14px; /* Smaller quote on mobile */
-  }
-
-  .form-group label {
-    font-size: 12px; /* Smaller label on mobile */
-  }
-
-  .form-group select,
-  .form-group input,
-  .form-group textarea {
-    font-size: 14px; /* Smaller input text on mobile */
-  }
-
-  .submit-btn {
-    font-size: 14px; /* Smaller button text on mobile */
-    padding: 10px 20px;
-  }
-
-  .map-placeholder {
-    height: 300px; /* Smaller map height on mobile */
-  }
-
-  /* Products Page on Mobile */
-  .page-title h1 {
-    font-size: 24px; /* Smaller heading on mobile */
-  }
-
-  .product-tabs {
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-
-  .product-tabs .tab {
+  .cta-btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 16px;
     font-size: 14px;
-    padding: 8px 16px;
+    position: static;
   }
 
-  .category-apis h2,
-  .category-excipients h2,
-  .category-veterinary h2,
-  .category-food h2 {
-    font-size: 20px; /* Smaller category heading on mobile */
+  .logo-image {
+    height: 32px;
   }
+}
 
-  .product-grid {
-    flex-direction: column;
-    gap: 16px;
-  }
+/* Footer */
+footer {
+  background-color: #1E3A8A; /* Navy blue */
+  color: #FFFFFF;
+  padding: 40px 0;
+}
 
-  .product-card h3 {
-    font-size: 18px; /* Smaller product title on mobile */
-  }
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
 
-  .product-card p {
-    font-size: 14px; /* Smaller description on mobile */
-  }
+.footer-column {
+  flex: 1;
+}
 
-  .product-card .btn {
-    font-size: 12px; /* Smaller button text on mobile */
-    padding: 6px 12px;
-  }
+.footer-column h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #FFFFFF;
+}
 
-  .search-form {
-    flex-direction: column;
-    gap: 12px;
-  }
+.footer-column ul {
+  list-style: none;
+}
 
-  .search-form input[type="text"] {
-    font-size: 14px; /* Smaller input text on mobile */
-  }
+.footer-column ul li {
+  margin-bottom: 8px;
+}
 
-  .search-form .search-btn {
-    font-size: 14px; /* Smaller button text on mobile */
-    padding: 8px 16px;
-  }
+.footer-column p {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
 
-  /* Services Page on Mobile */
-  .distribution,
-  .logistics .container,
-  .complimentary {
+.footer-column a {
+  color: #60A5FA; /* Medium blue for links */
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-column a:hover {
+  color: #3B82F6; /* Lighter blue on hover */
+}
+
+/* Icons */
+.footer-column .icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.footer-column .phone {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>') no-repeat center;
+}
+
+.footer-column .email {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>') no-repeat center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
     flex-direction: column;
     gap: 24px;
   }
 
-  .distribution-content h2,
-  .logistics-content h2,
-  .complimentary-content h2 {
-    font-size: 24px; /* Smaller heading on mobile */
+  .footer-column h3 {
+    font-size: 16px;
   }
 
-  .distribution-content p,
-  .logistics-content p,
-  .complimentary-content p {
-    font-size: 14px; /* Smaller text on mobile */
+  .footer-column p,
+  .footer-column a {
+    font-size: 13px;
   }
+}
 
-  .distribution-image img,
-  .logistics-image img,
-  .complimentary-image img {
-    width: 100%; /* Full width on mobile */
-    max-width: 400px; /* Prevent it from getting too large */
-  }
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #1E3A8A; /* Navy blue */
+  border: none;
+  border-radius: 50%; /* Circular button */
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0; /* Hidden by default */
+  visibility: hidden; /* Hidden by default */
+  transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  background-color: #3B82F6; /* Lighter blue on hover */
+}
+
+.scroll-to-top:focus {
+  outline: 2px solid #60A5FA; /* Medium blue outline for accessibility */
+  outline-offset: 2px;
+}
+
+.scroll-to-top-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>') no-repeat center;
 }
