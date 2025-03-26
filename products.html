@@ -8,57 +8,8 @@
   <title>OSTA Trading - Our Products</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/products.css"> <!-- Ensure this path is correct -->
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png">
-  <style>
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .product-card {
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      background-color: #fff;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .modal-content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 5px;
-      max-width: 500px;
-      width: 90%;
-      position: relative;
-    }
-    .modal-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 20px;
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-      .product-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 480px) {
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -79,24 +30,26 @@
   </header>
 
   <main>
-    <section class="page-title container">
-      <h1>Our Products</h1>
-    </section>
+    <div class="hero-section">
+      <section class="page-title container">
+        <h1>Our Products</h1>
+      </section>
 
-    <section class="product-tabs container">
-      <button class="tab active" data-tab="all">All Products</button>
-      <button class="tab" data-tab="pharma">Pharmaceuticals</button>
-      <button class="tab" data-tab="excipients">Excipients</button>
-      <button class="tab" data-tab="veterinary">Veterinary</button>
-      <button class="tab" data-tab="food">Food Industry</button>
-    </section>
+      <section class="product-tabs container">
+        <button class="tab active" data-tab="all">All Products</button>
+        <button class="tab" data-tab="pharma">Pharmaceuticals</button>
+        <button class="tab" data-tab="excipients">Excipients</button>
+        <button class="tab" data-tab="veterinary">Veterinary</button>
+        <button class="tab" data-tab="food">Food Industry</button>
+      </section>
 
-    <section class="search-bar container">
-      <form class="search-form" id="product-search-form">
-        <input type="text" id="search-input" placeholder="Search products..." aria-label="Search products">
-        <button type="submit" class="search-btn">Search</button>
-      </form>
-    </section>
+      <section class="search-bar container">
+        <form class="search-form" id="product-search-form">
+          <input type="text" id="search-input" placeholder="Search products..." aria-label="Search products">
+          <button type="submit" class="search-btn">Search</button>
+        </form>
+      </section>
+    </div>
 
     <div class="categories">
       <section class="category-apis container" data-category="pharma">

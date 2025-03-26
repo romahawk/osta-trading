@@ -6,8 +6,37 @@
 
 .page-title h1 {
   font-size: 48px;
-  color: #1E3A8A; /* Navy blue */
+  color: #FFFFFF; /* Changed to white for readability on background */
   font-weight: 700;
+}
+
+.hero-section {
+  background-image: url('../assets/hero-bg.jpg'); /* Adjust path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 30vh; /* 30% viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 20px 0;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Overlay for readability */
+  z-index: 1;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2; /* Content above overlay */
 }
 
 .product-tabs {
@@ -19,41 +48,22 @@
   display: inline-block;
   padding: 10px 20px;
   margin: 0 4px;
-  background-color: #E5E7EB; /* Light gray background for inactive tabs */
-  color: #666; /* Gray text */
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent for background */
+  color: #FFFFFF; /* White text */
+  border: 1px solid #FFFFFF;
   border-radius: 20px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* Style the active tab (when its corresponding input is checked) */
-#tab-all:checked ~ .category-apis,
-#tab-all:checked ~ .category-excipients,
-#tab-all:checked ~ .category-veterinary,
-#tab-all:checked ~ .category-food {
-  display: block;
+.product-tabs .tab.active {
+  background-color: #FFFFFF; /* White background for active tab */
+  color: #1E3A8A; /* Navy blue text */
 }
 
-#tab-pharma:checked ~ .pharma {
-  display: block;
-}
-
-#tab-food:checked ~ .food {
-  display: block;
-}
-
-/* Style the tab label when its corresponding input is checked */
-#tab-all:checked + #tab-pharma + #tab-food + .category-apis + .category-excipients + .category-veterinary + .category-food + .product-tabs .tab[for="tab-all"],
-#tab-pharma:checked + #tab-food + .category-apis + .category-excipients + .category-veterinary + .category-food + .product-tabs .tab[for="tab-pharma"],
-#tab-food:checked + .category-apis + .category-excipients + .category-veterinary + .category-food + .product-tabs .tab[for="tab-food"] {
-  background-color: #1E3A8A; /* Navy blue background for active tab */
-  color: #FFFFFF; /* White text */
-}
-
-/* Search Bar */
+/* Remove outdated radio button logic since we're using JavaScript */
 .search-bar {
-  background-color: #F5F5F5; /* Light gray background */
   padding: 24px 0;
   text-align: center;
 }
@@ -101,35 +111,12 @@
   position: relative;
 }
 
-/* Hide the radio inputs */
-.categories input {
-  display: none;
-}
-
-/* Category Sections */
 .category-apis,
 .category-excipients,
 .category-veterinary,
 .category-food {
   padding: 48px 0;
   display: none; /* Hide all categories by default */
-}
-
-/* Default visibility (when "All Products" is checked on page load) */
-#tab-all:checked ~ .category-apis,
-#tab-all:checked ~ .category-excipients,
-#tab-all:checked ~ .category-veterinary,
-#tab-all:checked ~ .category-food {
-  display: block;
-}
-
-/* Show categories based on selected tab */
-#tab-pharma:checked ~ .pharma {
-  display: block;
-}
-
-#tab-food:checked ~ .food {
-  display: block;
 }
 
 .category-apis {
@@ -185,6 +172,38 @@
   margin-bottom: 16px;
 }
 
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .page-title h1 {
     font-size: 32px;
@@ -219,7 +238,13 @@
   }
 
   .product-grid {
-    grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
   }
 
   .product-card h3 {
