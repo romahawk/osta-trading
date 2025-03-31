@@ -1,69 +1,54 @@
 /* Services-specific styles */
+
+/* Mobile-first base styles */
 .page-title {
   padding: 40px 0;
   text-align: center;
 }
 
 .page-title h1 {
-  font-size: 48px;
-  color: #1E3A8A; /* Navy blue */
+  font-size: 32px;
+  color: #1E3A8A;
   font-weight: 700;
 }
 
 .distribution,
 .logistics,
 .complimentary {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  padding: 48px 0;
-}
-
-.distribution,
-.complimentary {
-  padding: 40px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-}
-
-.logistics {
   width: 100%;
-  background-color: #F5F5F5;
-  padding: 40px 0;
+  padding: 40px 40px; /* Sole source of padding */
+  background-color: #FFFFFF;
 }
 
-.logistics .container {
+.distribution .container,
+.logistics .container,
+.complimentary .container {
+  width: 100%;
+  padding: 0; /* Override styles.css padding: 0 24px */
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-}
-
-.distribution {
-  background-color: #FFFFFF; /* White background */
-}
-
-.logistics {
-  background-color: #F5F5F5; /* Light gray background for contrast */
-}
-
-.complimentary {
-  background-color: #FFFFFF; /* White background */
+  flex-direction: column;
+  gap: 24px;
 }
 
 .distribution-content,
 .logistics-content,
 .complimentary-content {
-  flex: 1;
+  order: 1;
+  width: 100%;
+}
+
+.distribution-image,
+.logistics-image,
+.complimentary-image {
+  order: 2;
+  width: 100%;
 }
 
 .distribution-content h2,
 .logistics-content h2,
 .complimentary-content h2 {
   color: #1E3A8A;
-  font-size: 32px;
+  font-size: 24px;
   margin-bottom: 16px;
 }
 
@@ -71,7 +56,7 @@
 .logistics-content p,
 .complimentary-content p {
   color: #333;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
 }
 
@@ -83,34 +68,44 @@
   border-radius: 8px;
 }
 
-.distribution-content,
-.logistics-content,
-.complimentary-content {
-  flex: 1;
-}
-
-@media (max-width: 768px) {
+/* Desktop adjustments */
+@media (min-width: 769px) {
   .page-title h1 {
-    font-size: 32px;
+    font-size: 48px;
   }
 
-  .distribution,
+  .distribution .container,
   .logistics .container,
-  .complimentary {
-    flex-direction: column;
-    gap: 24px;
+  .complimentary .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 0; /* Ensure no extra padding on desktop */
   }
+
+  /* Distribution: Image left, Text right */
+  .distribution-image { order: 1; flex: 1; }
+  .distribution-content { order: 2; flex: 1; }
+
+  /* Logistics: Text left, Image right */
+  .logistics-content { order: 1; flex: 1; }
+  .logistics-image { order: 2; flex: 1; }
+
+  /* Complimentary: Image left, Text right */
+  .complimentary-image { order: 1; flex: 1; }
+  .complimentary-content { order: 2; flex: 1; }
 
   .distribution-content h2,
   .logistics-content h2,
   .complimentary-content h2 {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   .distribution-content p,
   .logistics-content p,
   .complimentary-content p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .distribution-image img,
@@ -119,15 +114,5 @@
     width: 100%;
     max-width: 400px;
     border-radius: 8px;
-  }
-
-
-  /* On mobile, ensure the image appears after the text for all sections */
-  .logistics-image {
-    order: 2; /* Ensure the image comes after the text on mobile */
-  }
-
-  .logistics-content {
-    order: 1; /* Ensure the text comes first on mobile */
   }
 }

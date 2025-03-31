@@ -71,46 +71,36 @@
   border-radius: 8px; /* Rounded corners for the image */
 }
 
+/* #region Mission Section */
 /* Mission Section */
 .mission {
-  width: 100%; /* Full width */
-  max-width: none; /* Override any max-width constraints */
-  background-color: #F5F5F5; /* Light gray background to match the image */
-  padding: 40px 0; /* Vertical padding for spacing */
+  padding: 48px 0; /* Match story section padding */
+  background-color: #F5F5F5;
 }
 
 .mission .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 40px; /* Space between text and image */
+  gap: 32px; /* Match story section gap */
+  width: 100%; /* Ensure full width */
 }
 
 .mission-content {
-  flex: 1; /* Take up remaining space */
-}
-
-.mission-content h2 {
-  color: #1E3A8A; /* Navy blue to match the theme */
-  font-size: 32px;
-  margin-bottom: 16px;
-}
-
-.mission-content p {
-  color: #333; /* Dark gray for readability */
-  font-size: 16px;
-  line-height: 1.8;
+  flex: 2; /* Match story section proportions */
 }
 
 .mission-image {
-  flex: 0 0 auto; /* Prevent the image from growing */
+  flex: 1; /* Match story section proportions */
+  text-align: center;
 }
 
 .mission-image img {
-  width: 400px; /* As specified in the HTML */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 8px; /* Rounded corners for the image */
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
 }
+
+/* #endregion */
 
 /* Team Section */
 .team {
@@ -171,20 +161,20 @@
 
 /* Milestones Section */
 .milestones {
-  background-color: #F5F5F5; /* Light gray background for contrast */
+  background-color: #F5F5F5;
   padding: 48px 0;
   text-align: center;
 }
 
 .milestones h2 {
   font-size: 32px;
-  color: #1E3A8A; /* Navy blue */
+  color: #1E3A8A;
   margin-bottom: 16px;
 }
 
 .milestones-subheading {
   font-size: 16px;
-  color: #666; /* Gray */
+  color: #666;
   margin-bottom: 32px;
   max-width: 800px;
   margin-left: auto;
@@ -195,6 +185,7 @@
   position: relative;
   max-width: 800px;
   margin: 0 auto;
+  padding: 20px 0; /* Add padding to prevent content from touching edges */
 }
 
 .timeline::before {
@@ -204,29 +195,32 @@
   bottom: 0;
   left: 50%;
   width: 2px;
-  background-color: #1E3A8A; /* Navy blue timeline line */
+  background-color: #1E3A8A;
   transform: translateX(-50%);
 }
 
 .timeline-item {
   display: flex;
-  align-items: center;
-  margin-bottom: 40px;
+  align-items: flex-start; /* Changed from center to flex-start */
+  margin-bottom: 60px; /* Increased margin to accommodate year circle */
   position: relative;
+  min-height: 80px; /* Ensure enough space for the year circle */
 }
 
 .timeline-item.left {
   flex-direction: row;
+  justify-content: flex-start;
 }
 
 .timeline-item.right {
   flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 .timeline-year {
   width: 60px;
   height: 60px;
-  background-color: #1E3A8A; /* Navy blue */
+  background-color: #1E3A8A;
   color: #FFFFFF;
   border-radius: 50%;
   display: flex;
@@ -243,6 +237,7 @@
 .timeline-content {
   width: 45%;
   text-align: left;
+  padding-top: 20px; /* Add padding to push content below the year */
 }
 
 .timeline-item.right .timeline-content {
@@ -251,13 +246,13 @@
 
 .timeline-content h3 {
   font-size: 20px;
-  color: #1E3A8A; /* Navy blue */
+  color: #1E3A8A;
   margin-bottom: 8px;
 }
 
 .timeline-content p {
   font-size: 14px;
-  color: #666; /* Gray */
+  color: #666;
   line-height: 1.5;
 }
 
@@ -287,6 +282,45 @@
     font-size: 14px;
   }
 
+  /* Mobile adjustments */
+@media (max-width: 768px) {
+  .mission {
+    padding: 48px 0; /* Consistent padding with story */
+  }
+
+  .mission .container {
+    flex-direction: column; /* Match story section mobile behavior */
+    text-align: center;
+    width: 100%; /* Full width on mobile */
+    gap: 24px; /* Consistent gap with story on mobile */
+  }
+
+  .mission-content {
+    order: 1; /* Text first */
+    width: 100%; /* Full width */
+  }
+
+  .mission-image {
+    order: 2; /* Image second */
+    margin-bottom: 24px; /* Match story section spacing */
+    width: 100%; /* Full width */
+  }
+
+  .mission-image img {
+    width: 100%; /* Make image responsive */
+    max-width: 400px; /* Maintain maximum size */
+    height: auto;
+  }
+
+  .mission-content h2 {
+    font-size: 24px; /* Match story section */
+  }
+
+  .mission-content p {
+    font-size: 14px; /* Match story section */
+  }
+}
+
   /* On mobile, ensure the image appears after the text for both sections */
   .mission-image {
     order: 2; /* Ensure the image comes after the text on mobile */
@@ -313,41 +347,39 @@
     margin-bottom: 24px;
   }
 
-  /* Milestones Section on Mobile */
-  .milestones h2 {
-    font-size: 24px;
-  }
-
-  .milestones-subheading {
-    font-size: 14px;
-  }
-
-  .timeline::before {
-    left: 20px; /* Move the timeline line to the left */
-  }
-
-  .timeline-item {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 40px;
-  }
-
-  .timeline-item.left,
-  .timeline-item.right {
-    flex-direction: column;
-  }
-
-  .timeline-year {
-    left: 0;
-    transform: none;
-  }
-
-  .timeline-content {
-    width: 100%;
-    text-align: left;
-  }
-
-  .timeline-item.right .timeline-content {
-    text-align: left;
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 20px;
+    }
+  
+    .timeline-item {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-left: 40px;
+      margin-bottom: 40px; /* Reduced but still sufficient spacing */
+    }
+  
+    .timeline-item.left,
+    .timeline-item.right {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  
+    .timeline-year {
+      left: 0;
+      transform: none;
+      position: relative; /* Changed to relative for better flow */
+      margin-bottom: 10px; /* Space between year and content */
+    }
+  
+    .timeline-content {
+      width: 100%;
+      text-align: left;
+      padding-top: 0; /* Remove top padding since year is now above */
+    }
+  
+    .timeline-item.right .timeline-content {
+      text-align: left;
+    }
   }
 }
